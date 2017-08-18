@@ -6,15 +6,12 @@
         <div class="col-xs-12 col-md-12 col-lg-12 col-xl-12">
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
-              <div class="carousel-item slider active slideFrames">
-                <img class="d-block img-fluid" src="../assets/images/homepage/slider/1.jpeg" alt="First slide">
+              <div class="carousel-item slider active slideFrames" v-if="general[0]">
+                <img class="d-block img-fluid" :src="imagePath(general[0].image_link)" alt="Second slide">
               </div>
-              <div class="carousel-item slider slideFrames">
-                <img class="d-block img-fluid" src="../assets/images/homepage/slider/1.jpeg" alt="Second slide">
-              </div>
-              <div class="carousel-item slider slideFrames">
+              <!-- <div class="carousel-item slider slideFrames">
                 <img class="d-block img-fluid" src="../assets/images/homepage/slider/1.jpeg" alt="Third slide">
-              </div>
+              </div> -->
             </div>
             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -75,7 +72,9 @@
               <i class="fa fa-free-code-camp" aria-hidden="true"></i>
             </div>
             <div class="specialContent">
-              <h4>Coach <br></h4>
+              <h4>Coach
+                <br>
+              </h4>
               <p>Đội ngũ Coach luôn theo dõi và đốc thúc học viên đạt mục tiêu theo Action Plan chi tiết đến từng buổi học</p>
             </div>
           </div>
@@ -98,7 +97,7 @@
       </div>
     </div>
     <!-- Het Content 1 -TẠI SAO CHỌN CLB-->
-  
+
     <!-- Content 2 - CÁC HOẠT ĐỘNG CỦA CLB -->
     <div class="container">
       <div class="row ">
@@ -113,7 +112,7 @@
             <p>Học tập là không có điểm dừng. Không phải bạn đọc xong một cuốn sách, qua một kì thi hay kết thúc một chương trình học. Trong cả cuộc đời mình, từ lúc bạn sinh ra là bạn đã bắt đầu học....
               <br>
             </p>
-  
+
             <blockquote class="blockquote">
               <i>Education is the most powerful weapon which you can use to change the world.</i>
               <footer class="blockquote-footer">Nelson Mandela</footer>
@@ -122,74 +121,84 @@
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses">
+          <div class="courses" v-if="course[11]">
             <a href="#">
-              <div class="featured_image_courses">
-                   <div class="icon"><img src="../assets/images/homepage/logo-offical.png" alt=""></div>
-                
-                <img src="../assets/images/homepage/class/japanese.png" alt="" class="img-fluid">
+              <div class="featured_image_courses" >
+                <div class="icon">
+                  <img :src="imagePath(general[0].logo)" alt="">
+                </div>
+                <img :src="imagePathClass(course[11].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">Lớp tiếng Nhật 0 đồng</a>
+              <a href="">{{ course[11].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses">
-            <router-link to="lop-tieng-anh-0-dong"><a href="#">
-              <div class="featured_image_courses">
-                    <div class="icon"><img src="../assets/images/homepage/logo-offical.png" alt=""></div>
-                <img src="../assets/images/homepage/class/english.png" alt="" class="img-fluid">
-              </div>
-            </a></router-link>
+          <div class="courses" v-if="course[9]">
+            <router-link to="lop-tieng-anh-0-dong">
+              <a href="#">
+                <div class="featured_image_courses" >
+                  <div class="icon">
+                    <img :src="imagePath(general[0].logo)" alt="">
+                  </div>
+                  <img :src="imagePathClass(course[6].picture)" alt="" class="img-fluid">
+                </div>
+              </a>
+            </router-link>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">Lớp tiếng Anh 0 đồng</a>
+              <a href="">{{ course[6].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses">
+          <div class="courses" v-if="course[10]">
             <a href="#">
               <div class="featured_image_courses">
-                <div class="icon"><img src="../assets/images/homepage/logo-offical.png" alt=""></div>
-                
-                <img src="../assets/images/homepage/class/korean.png" alt="" class="img-fluid">
+                <div class="icon">
+                  <img :src="imagePath(general[0].logo)" alt="">
+                </div>
+
+                <img :src="imagePathClass(course[10].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">Lớp tiếng Hàn 0 đồng</a>
+              <a href="">{{ course[10].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses">
+          <div class="courses" v-if="course[12]">
             <a href="#">
               <div class="featured_image_courses">
-                <div class="icon"><img src="../assets/images/homepage/logo-offical.png" alt=""></div>
-                <img src="../assets/images/homepage/class/chinese.png" alt="" class="img-fluid">
+                <div class="icon">
+                  <img :src="imagePath(general[0].logo)" alt="">
+                </div>
+                <img :src="imagePathClass(course[12].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">Lớp tiếng Trung 0 đồng</a>
+              <a href="">{{ course[12].title }}</a>
             </div>
           </div>
         </div>
-        
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses">
+          <div class="courses" v-if="course[13]">
             <a href="#">
               <div class="featured_image_courses">
-                    <div class="icon"><img src="../assets/images/homepage/logo-offical.png" alt=""></div>
-                <img src="../assets/images/homepage/course1.jpg" alt="" class="img-fluid">
+                <div class="icon">
+                  <img :src="imagePath(general[0].logo)" alt="">
+                </div>
+                <img :src="imagePathClass(course[13].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">Kết nối các cộng đồng </a>
+              <a href="">{{ course[13].title }}</a>
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
     <!--Hết Content 2 - Các hoạt động CLB -->
@@ -199,172 +208,56 @@
         <div class="titleReason text-center event">
           <h2> SỰ KIỆN SẮP DIỄN RA</h2>
           <i class="fa fa-calendar" aria-hidden="true"></i>
-          <p>Các sự kiện sẽ diễn ra trong tháng 7 này</p>
+          <p>Các sự kiện sẽ diễn ra trong tháng này</p>
         </div>
       </div>
       <div class="row upcomingEvents text-center">
         <div class="col-xs-12 col-lg-12 col md-12">
           <!-- Nav tabs -->
-          <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item ">
-              <a class="nav-link active" data-toggle="tab" href="#date1" role="tab">
+          <ul class="nav nav-tabs" role="tablist" >
+            <li class="nav-item" v-for="(item, index, key) in info" :key="item.key">
+              <a class="nav-link" :class="{active: index==0 ? true : false}" data-toggle="tab" :href="`#date${index+1}`" role="tab">
                 <h3>Tuần
-                  <span>01</span>
+                  <span>0{{index+1}}</span>
                 </h3>
-                <p>
-                  <span>01</span> Tháng 7 - 2017</p>
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#date2" role="tab">
-                <h3>Tuần
-                  <span>02</span>
-                </h3>
-                <p>
-                  <span>08</span> Tháng 7 - 2017</p>
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#date3" role="tab">
-                <h3>Tuần
-                  <span>03</span>
-                </h3>
-                <p>
-                  <span>15</span> Tháng 7 - 2017</p>
-                <span class="arrow"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#date4" role="tab">
-                <h3>Tuần
-                  <span>04</span>
-                </h3>
-                <p>
-                  <span>22</span> Tháng 7 - 2017</p>
+                  {{ item.start_time }}
                 <span class="arrow"></span>
               </a>
             </li>
           </ul>
-          
           <!-- Tab panes -->
           <div class="tab-content">
-            <div class="tab-pane active " id="date1" role="tabpanel">
+            <div class="tab-pane ":id="`date${index+1}`"  :class="{active: index==0 ? true : false}" role="tabpanel " aria-expanded="true" v-for="(item, index) in info">
               <div class="row eventContent">
                 <div class="col-xs-12 col-md-2 col-lg-2  ">
                   <div class="time-area">
-                    <h4 class="time">"08:45"
-                      <span>PM</span>
+                    <h4 class="time">{{item.start_hour}}
                     </h4>
                   </div>
                 </div>
                 <div class="col-xs-12 col-md-3 col-lg-3">
                   <div class="author">
                     <div class="image">
-                      <img src="../assets/images/homepage/events/speaker1.jpg" alt="">
+                      <img :src="imagePathEvent(item.avatar)" alt="">
                     </div>
                     <div class="authorInfo">
-                      <div class="name">Mrs Hoài Thương</div>
-                      <div class="author-title">Du học sinh</div>
+                      <div class="name">{{item.speaker}}</div>
+                      <div class="author-title">{{item.job}}</div>
                     </div>
                   </div>
                 </div>
                 <div class="col-xs-12 col-md-7 col-lg-7">
                   <div class="scheduleInfo">
-                    <h3 class="title">Kinh nghiệm săn học bổng du học Úc</h3>
-                    <p>Bạn thương hiện là Du học sinh năm 4 ĐH Queensland Australia. Hãy tham khảo những đóng góp quý giá của bạn nhé!</p>
+                    <h3 class="title">{{item.title}}</h3>
+                    <p>{{item.description}}</p>
                   </div>
                 </div>
                 <div class="col-xs-12 col-md-12 col-lg-12">
-                  <div class="btnMore"><router-link to="tintuc-sukien"><div class="btn btn-danger">Đọc thêm</div></router-link></div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane  " id="date2" role="tabpanel">
-              <div class="row eventContent">
-                <div class="col-xs-12 col-md-2 col-lg-2">
-                  <div class="time-area">
-                    <h4 class="time">"08:30"
-                      <span>PM</span>
-                    </h4>
+                  <div class="btnMore">
+                    <router-link to="sukien">
+                      <div class="btn btn-danger">Đọc thêm</div>
+                    </router-link>
                   </div>
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3">
-                  <div class="author">
-                    <img src="../assets/images/homepage/events/speaker2.jpg" alt="">
-                    <div class="authorInfo">
-                      <div class="name">Nguyễn Trọng Hoàng</div>
-                      <div class="author-title">Web designer</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-7 col-lg-7">
-                  <div class="scheduleInfo">
-                    <h3 class="title">Sinh viên IT và tiếng Anh</h3>
-                    <p>Mr Hoàng hiện đang là FullStack Ruby. Cùng Hoàng khám phá những vấn đề còn tồn tại của sinh viên IT Việt Nam và hướng khắc phục.</p>
-                  </div>
-                </div>
-                                <div class="col-xs-12 col-md-12 col-lg-12">
-                  <div class="btnMore"><router-link to="tintuc-sukien"><div class="btn btn-danger">Đọc thêm</div></router-link></div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane " id="date3" role="tabpanel">
-              <div class="row eventContent">
-                <div class="col-xs-12 col-md-2 col-lg-2 ">
-                  <div class="time-area">
-                    <h4 class="time">"09:30"
-                      <span>AM</span>
-                    </h4>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3">
-                  <div class="author">
-                    <img src="../assets/images/homepage/events/speaker3.jpg" alt="">
-                    <div class="authorInfo">
-                      <div class="name"> Mrs Quang Anh</div>
-                      <div class="author-title">Giảng viên ĐH KTQD</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-7 col-lg-7">
-                  <div class="scheduleInfo">
-                    <h3 class="title">Luyện thi IELTS thế nào hiệu quả</h3>
-                    <p>Muốn đạt điểm cao ở một chương trình thi quốc tế như IELTS bạn cần một cái đầu lạnh và chiến thuật hợp lý...</p>
-                  </div>
-                </div>
-                                <div class="col-xs-12 col-md-12 col-lg-12">
-                  <div class="btnMore"><router-link to="tintuc-sukien"><div class="btn btn-danger">Đọc thêm</div></router-link></div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane " id="date4" role="tabpanel">
-              <div class="row eventContent">
-                <div class="col-xs-12 col-md-2 col-lg-2">
-                  <div class="time-area">
-                    <h4 class="time">"09:30"
-                      <span>AM</span>
-                    </h4>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-3 col-lg-3">
-                  <div class="author">
-                    <img src="../assets/images/homepage/events/speaker4.jpg" alt="">
-                    <div class="authorInfo">
-                      <div class="name">Ms Hằng</div>
-                      <div class="author-title">Founder Community Language Club</div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-md-7 col-lg-7">
-                  <div class="scheduleInfo">
-                    <h3 class="title">Sinh hoạt định kỳ Community Language Club</h3>
-                    <p>Cùng Ms Hằng tham gia một trong những cộng đồng Ngoại ngữ lớn nhất Hà Nội nhé</p>
-                  </div>
-                </div>
-                                <div class="col-xs-12 col-md-12 col-lg-12">
-                  <div class="btnMore"><router-link to="tintuc-sukien"><div class="btn btn-danger">Đọc thêm</div></router-link></div>
                 </div>
               </div>
             </div>
@@ -432,7 +325,7 @@
                 </h3>
                 <p class="description">
                   Từ 1 đứa nhút nhát, rụt rè và đặc biệt là ghét cay ghét đăng tiếng Anh, Tôi giờ đây đã là chủ nhiệm 1 câu lạc bộ tiếng Anh trong trường. Tôi thường xuyên tự tin chia sẻ tại các buổi nói chuyện trước 20-30 bạn. Tôi không chỉ nói giỏi về tiếng Anh mà khẳ năng diễn thuyết trước đám đông của tôi cũng chuyên nghiệp hơn rất nhiều
-  
+
                 </p>
               </div>
             </div>
@@ -449,11 +342,11 @@
                 </p>
               </div>
             </div>
-  
+
           </div>
         </div>
       </div>
-  
+
     </div>
     <!--  Hết ontent 5 - HỌC VIÊN NÓI GÌ VỀ CHÚNG TÔI-->
     <!--  Content 6 - Báo chí nói gì về chúng tôi-->
@@ -468,29 +361,33 @@
           <iframe src="https://www.youtube.com/embed/jfG1CN-PMfc" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="col-xs-12 col-md-12 col-lg-6">
-          <div class="row">
+          <div class="row" v-if="newspaper[0]">
             <div class="col-xs-12 col-md-6 col-lg-6">
-              <div class="newspaperImg text-center">
-                <img src="../assets/images/homepage/baochi1.png"  class="img-fluid" alt="">
+              <div class="newspaperImg text-center" >
+                <img :src="imagePath(newspaper[0].cover_link)" class="img-fluid" alt="">
               </div>
             </div>
             <div class="col-xs-12 col-md-6 col-lg-6">
               <div class="newspaperContent">
-               <a href=""><h4>Báo dân trí</h4></a> 
-                <p>Trong thời buổi kinh tế hội nhập như hiện nay, tiếng Anh đang là một hành trang không thể thiếu đối với các bạn sinh viên...</p>
+                <a href="">
+                  <h4>{{newspaper[0].title}}</h4>
+                </a>
+                <p>{{ newspaper[0].description}}</p>
               </div>
             </div>
           </div>
-          <div class="row">
+          <div class="row" v-if="newspaper[1]">
             <div class="col-xs-12 col-md-6 col-lg-6">
-              <div class="newspaperImg text-center">
-                <img src="../assets/images/homepage/baochi2.jpg" class="img-fluid" alt="">
+              <div class="newspaperImg text-center" >
+                <img :src="imagePath(newspaper[1].cover_link)" class="img-fluid" alt="">
               </div>
             </div>
             <div class="col-xs-12 col-md-6 col-lg-6">
               <div class="newspaperContent">
-               <a href=""><h4>Báo Vnexpress</h4></a> 
-                <p>Cùng lắng nghe chia sẻ của Mrs Hang về kinh nghiệm luyện nghe tiếng Anh, vượt qua trở ngại ban đầu khi nói chuyện với....</p>
+                <a href="">
+                  <h4>{{newspaper[1].title}}</h4>
+                </a>
+                <p>{{ newspaper[1].description}}</p>
               </div>
             </div>
           </div>
@@ -499,22 +396,50 @@
     </div>
     <!--  Hết Content 6 - Báo chí nói gì về chúng tôi-->
     <!--  Content 7 - FORM ĐĂNG KÝ-->
-       <registerform></registerform>
+    <registerform></registerform>
     <!--  Hết Content 7 - FORM ĐĂNG KÝ-->
     <!--  Content 8 - THANH SCROLL-->
-  <app-iconscroll></app-iconscroll>
+    <app-iconscroll></app-iconscroll>
   </div>
-  
+
   <!--Đóng Khung template Vue/ don't remove-->
 </template>
 <script>
 import registerform from '../components/registerform.vue'
 import iconscroll from '../components/iconscroll.vue'
+import axios from 'axios'
+import moment from 'moment'
 export default {
   name: 'homepage',
+  data () {
+    return {
+      general: [],
+      info: [],
+      course: [],
+      newspaper: []
+    }
+  },
   components: {
     registerform,
     'app-iconscroll': iconscroll
+  },
+  created () {
+    // retrieve data from server
+    axios.get(`http://localhost:3000`)
+    .then(res => {
+      res.data.event.map(item => {
+        item.start_time = moment(item.starttime).format('DD/MM/YYYY')
+        item.start_hour = moment(item.starttime).format('LTS')
+      })
+      this.info = res.data.event
+      this.general = res.data.general
+      this.course = res.data.course
+      this.newspaper = res.data.newspaper
+      // console.log(this.course)
+    })
+      .catch(error => {
+        console.error(error)
+      })
   },
   mounted () {
     window.$('#abc-slider').owlCarousel({
@@ -531,6 +456,15 @@ export default {
       window.$('html, body').animate({
         scrollTop: window.$('#register_hocthumienphi').offset().top - 250
       }, 1000)
+    },
+    imagePath: function (img) {
+      return require('../assets/images/homepage/' + img)
+    },
+    imagePathClass: function (img) {
+      return require('../assets/images/homepage/class/' + img)
+    },
+    imagePathEvent: function (img) {
+      return require('../assets/images/homepage/events/' + img)
     }
   }
 }
@@ -545,7 +479,7 @@ export default {
   top: 140px;
   right: 20px;
   z-index: 10000;
-  transition: right 0.3s ease-in-out ;
+  transition: right 0.3s ease-in-out;
 }
 
 .box_scroll:hover {
@@ -558,12 +492,13 @@ export default {
   transition: 0.3s;
   display: none;
 }
+
 #calendarScroll {
   position: fixed;
   top: 140px;
   left: 20px;
   z-index: 10000;
-  transition:  0.3s  ;
+  transition: 0.3s;
 }
 
 #calendarScroll:hover {
@@ -579,13 +514,14 @@ export default {
 
 
 
+
 /******
 	CSS CHO PHAN SLIDER
 	******/
 
 #carouselExampleControls>div>.slideFrames {
   align-items: center;
-  margin-top: 80px;
+  margin-top: 110px;
 }
 
 .titleReason {
@@ -621,6 +557,7 @@ export default {
   padding: 7px 25px;
   line-height: 26px;
 }
+
 
 
 /******
@@ -680,6 +617,8 @@ export default {
   text-align: justify;
   padding: 15px;
 }
+
+
 /******
 	CSS CHO PHAN CONTENT2 CÁC HOẠT ĐỘNG CỦA EMPIRE
 	******/
@@ -717,12 +656,14 @@ export default {
   color: white;
   padding: 10px;
   border-radius: 10px;
+}
 
+.featured_image_courses .icon img {
+  width: 60px;
+  height: 30px;
+  background: white;
 }
-.featured_image_courses .icon img{
-   width: 60px;
-  height: 30px;  background:white;
-}
+
 .course_text_content {
   padding: 10px;
   text-align: center;
@@ -738,6 +679,7 @@ export default {
 .courses:hover .featured_image_courses img {
   transform: scale(1.1)
 }
+
 
 /******
 	CSS CHO PHAN CONTENT4 lY DO CHON EMPiRE
@@ -789,6 +731,7 @@ export default {
 }
 
 
+
 /******
 	CSS CHO PHAN CONTENT5 CONTACT FORM
 	******/
@@ -836,6 +779,7 @@ export default {
   margin-left: 0;
   margin-right: 0;
 }
+
 
 
 
@@ -940,6 +884,7 @@ export default {
 
 
 
+
 /******
 	CSS CHO PHAN CONTENT6 UPCOMING EVENT
 	******/
@@ -954,6 +899,7 @@ export default {
   opacity: 0.2;
   z-index: -10
 }
+
 
 /*.eventContent:hover {
   background: #FF6500
@@ -974,15 +920,16 @@ export default {
 
 .eventContent .time-area {
   padding-top: 10px;
-  padding-right: 20px;
+  padding-right: 5px;
 }
 
 .time-area h4 {
   text-align: right;
-  font-size: 2rem;
-  line-height: 2rem;
+  font-size: 2.2rem;
+  line-height: 2.5rem;
   display: inline-block;
-  font-weight: bold
+  font-weight: bold;
+  color:#FF6500;
 }
 
 .time-area span {
@@ -1071,17 +1018,23 @@ export default {
   margin-bottom: 20px;
   cursor: pointer
 }
-.btnMore{ 
+
+.btnMore {
   width: 100%;
-  text-align: center}
-  .btnMore .btn {
-    background: #FF6500;
-    border: 2px solid #FF6500;
-  }
-    .btnMore .btn:hover{
-      background: white;
-      color: #FF6500;
-    }
+  text-align: center
+}
+
+.btnMore .btn {
+  background: #FF6500;
+  border: 2px solid #FF6500;
+}
+
+.btnMore .btn:hover {
+  background: white;
+  color: #FF6500;
+}
+
+
 /******
 	CSS CHO PHAN CONTENT6 BÁO CHÍ NÓI GÌ VỀ CHÚNG TÔI
 	******/
@@ -1089,35 +1042,40 @@ export default {
 .newspaperVideo iframe {
   width: 100%;
 }
+
 .newspaperContent a:hover {
   text-decoration: none;
-  color:#FF6500
+  color: #FF6500
 }
+
+
 /******
 	CSS CHO PHAN CONTENT7 VALIDATE FORM
 ******/
+
 .error {
-    font-size: 14px;
-    color: red;
-    padding-left: 20px;
+  font-size: 14px;
+  color: red;
+  padding-left: 20px;
 }
+
 @media screen and (max-width: 575px) {
   header {
     display: none;
   }
-  .mainMenu{
+  .mainMenu {
     margin-top: 0
   }
-  #carouselExampleControls>div>.slideFrames{
+  #carouselExampleControls>div>.slideFrames {
     margin-top: 15px
   }
-  .specialImage{
+  .specialImage {
     text-align: center
   }
   .specialImage img {
     filter: grayscale(0);
     max-width: 80%;
-     margin-top: 5px;
+    margin-top: 5px;
   }
   .specialIcon {
     filter: grayscale(0);
@@ -1173,15 +1131,15 @@ export default {
 }
 
 @media screen and (min-width:576px) and (max-width: 767px) {
-    header {
+  header {
     display: none;
   }
-    .mainMenu{
+  .mainMenu {
     margin-top: 0
   }
   .specialImage img {
     filter: grayscale(0);
-     margin-top: 5px;
+    margin-top: 5px;
   }
   .specialIcon {
     filter: grayscale(0);
@@ -1201,10 +1159,11 @@ export default {
   .newspaperVideo iframe {
     min-height: 200px
   }
-     .specialBox{
+  .specialBox {
     min-height: 552px;
   }
 }
+
 
 
 /*STYLE CSS RIENG BIET CHO OWL CAROSEL*/
@@ -1229,7 +1188,7 @@ export default {
 }
 
 @media only screen and (min-width:768px) and (max-width: 991px) {
-    .specialBox{
+  .specialBox {
     min-height: 553px;
   }
   .specialImage img {
@@ -1263,17 +1222,17 @@ export default {
   .newspaperVideo iframe {
     min-height: 300px
   }
-  .specialBox{
+  .specialBox {
     min-height: 480px;
   }
-  }
-  @media only screen and (min-width:1200px) {
-    .specialBox{
-      min-height: 502px;
-    }
-      .newspaperVideo iframe {
-    min-height: 300px
-    }
-  }
+}
 
+@media only screen and (min-width:1200px) {
+  .specialBox {
+    min-height: 502px;
+  }
+  .newspaperVideo iframe {
+    min-height: 300px
+  }
+}
 </style>

@@ -10,7 +10,6 @@
 								<img src="../assets/images/lichkhaigiang/titleBg.png" class="img-fluid" alt="">
 								<h2>Lịch khai giảng</h2>
 							</div>
-
 						</div>
 					</div>
 					<!-- Het Title Lich khai giang-->
@@ -25,9 +24,9 @@
 						<div class="col-xs-12 col-md-12 col-lg-12">
 							<!-- Lịch khai giảng lớp tiếng Anh-->
 							<div class="planEng">
-								<h3>Lớp tiếng Anh</h3>
-								<table class="table table-hover table-bordered table-striped table-responsive ">
-									<thead>
+								<h3>Lớp tiếng Anh </h3>
+								<table class="table table-hover table-bordered table-striped table-responsive " >
+									<thead >
 										<tr>
 											<th>#</th>
 											<th>Trình độ</th>
@@ -37,103 +36,13 @@
 											<th>Đăng ký</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody v-for="(item,index) in eng_schedule" :key="item.id">
 										<tr>
-											<th scope="row">1</th>
-											<td>Mới bắt đầu</td>
-											<td>Ngữ âm nền tảng 601</td>
-											<td>Thứ 4 - CN: 19h15 - 21h15</td>
-											<td>21/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>Mới bắt đầu</td>
-											<td>Ngữ âm nền tảng 602</td>
-											<td>Thứ 2 - Thứ 5: 19h15 - 21h15</td>
-											<td>23/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>Mới bắt đầu</td>
-											<td>Ngữ âm nền tảng 603</td>
-											<td>Thứ 3 - Thứ 6: 19h15 - 21h15</td>
-											<td>22/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">4</th>
-											<td>Cơ bản</td>
-											<td>Giao tiếp Basic 48</td>
-											<td>Thứ 2 - Thứ 5: 17h15 - 19h15</td>
-											<td>18/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">5</th>
-											<td>Cơ bản</td>
-											<td>Giao tiếp Basic 48</td>
-											<td>Thứ 2 - Thứ 5: 17h15 - 19h15</td>
-											<td>18/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">6</th>
-											<td>Cơ bản</td>
-											<td>Giao tiếp Basic 49</td>
-											<td>Thứ 3 - Thứ 6: 17h15 - 19h15</td>
-											<td>18/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">7</th>
-											<td>Cơ bản</td>
-											<td>Giao tiếp Basic 50</td>
-											<td>Thứ 4 - Chủ nhật: 17h15 - 19h15</td>
-											<td>18/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">8</th>
-											<td>Nâng cao</td>
-											<td>Giao tiếp Advanced 44</td>
-											<td>Thứ 5 - Chủ nhật: 9h15 - 11h15</td>
-											<td>30/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">9</th>
-											<td>Nâng cao</td>
-											<td>Giao tiếp Advanced 45</td>
-											<td>Thứ 2 - Thứ 5: 9h15 - 11h15</td>
-											<td>30/6/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">10</th>
-											<td>Nâng cao</td>
-											<td>Giao tiếp Advanced 47</td>
-											<td>Thứ 3 - Thứ 6: 9h15 - 11h15</td>
-											<td>30/6/2017</td>
+											<th scope="row">{{index + 1}}</th>
+											<td>{{item.class_level}}</td>
+											<td>{{item.course_id}} {{item.class_id}}</td>
+											<td>{{item.schedule_class}}</td>
+											<td>{{item.open_date}}</td>
 											<td>
 												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
 											</td>
@@ -145,7 +54,7 @@
 						</div>
 						<div class="col-xs-12 col-md-12 col-lg-12">
 							<!-- Lịch khai giảng lớp tiếng Trung-->
-							<div class="planChina">
+							<div class="planChina" v-if="chinese_schedule">
 								<h3>Lớp tiếng Trung</h3>
 
 								<table class="table table-hover table-bordered table-striped table-responsive ">
@@ -159,47 +68,27 @@
 											<th>Đăng ký</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody  v-for="(item,index) in chinese_schedule" :key="item.id">
 										<tr>
-											<th scope="row">1</th>
-											<td>A1-Mới bắt đầu</td>
-											<td>Tiếng Trung CNA1 11</td>
-											<td>Thứ 4 + CN: 19h15 - 21h16</td>
-											<td>10/06/2017</td>
+											<th scope="row">{{index + 1}}</th>
+											<td>{{item.class_level}}</td>
+											<td>{{item.course_id}} {{item.class_id}}</td>
+											<td>{{item.schedule_class}}</td>
+											<td>{{item.open_date}}</td>
 											<td>
 												<button class="btn-danger" data-toggle="modal" data-target="#myModalChinese">Đăng ký</button>
 											</td>
 										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>A1-Mới bắt đầu</td>
-											<td>Tiếng Trung CNA1 12</td>
-											<td>Thứ 3 + Thứ 6: 19h15 - 21h15 </td>
-											<td>01/07/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalChinese">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>A1-Mới bắt đầu</td>
-											<td>Tiếng Trung CNA1 13</td>
-											<td>Thứ 4 + CN: 19h15 - 21h16</td>
-											<td>10/06/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalChinese">Đăng ký</button>
-											</td>
-										</tr>
-
 									</tbody>
 								</table>
 							</div>
+
 							<!-- Hết Lịch khai giảng lớp tiếng Trung-->
 
 						</div>
 						<div class="col-xs-12 col-md-12 col-lg-12">
 							<!-- Lịch khai giảng lớp tiếng Nhật-->
-							<div class="planJapan">
+							<div class="planJapan" v-if="japanse_schedule">
 								<h3>Lớp tiếng Nhật</h3>
 
 								<table class="table table-hover table-bordered table-striped table-responsive ">
@@ -213,38 +102,17 @@
 											<th>Đăng ký</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody  v-for="(item,index) in japanse_schedule" :key="item.id">
 										<tr>
-											<th scope="row">1</th>
-											<td>A1 - Mới bắt đầu</td>
-											<td>Tiếng Nhật JNA1 11</td>
-											<td>Thứ 4 + CN: 19h15 - 21h16</td>
-											<td>10/06/2017</td>
+											<th scope="row">{{index + 1}}</th>
+											<td>{{item.class_level}}</td>
+											<td>{{item.course_id}} {{item.class_id}}</td>
+											<td>{{item.schedule_class}}</td>
+											<td>{{item.open_date}}</td>
 											<td>
 												<button class="btn-danger" data-toggle="modal" data-target="#myModalJapanese">Đăng ký</button>
 											</td>
 										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>A1 - Mới bắt đầu</td>
-											<td>Tiếng Nhật JNA1 12</td>
-											<td>Thứ 3 + Thứ 6: 19h15 - 21h15 </td>
-											<td>01/07/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalJapanese">Đăng ký</button>
-											</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td>A1 - Mới bắt đầu</td>
-											<td>Tiếng Nhật JNA1 13</td>
-											<td>Thứ 4 + CN: 19h15 - 21h16</td>
-											<td>10/06/2017</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalJapanese">Đăng ký</button>
-											</td>
-										</tr>
-
 									</tbody>
 								</table>
 							</div>
@@ -253,7 +121,7 @@
 						</div>
 						<div class="col-xs-12 col-md-12 col-lg-12">
 							<!-- Lịch khai giảng lớp tiếng Nhật-->
-							<div class="planKorea">
+							<div class="planKorea" v-if="korean_schedule">
 								<h3>Lớp tiếng Hàn</h3>
 
 								<table class="table table-hover table-bordered table-striped table-responsive ">
@@ -267,13 +135,13 @@
 											<th>Đăng ký</th>
 										</tr>
 									</thead>
-									<tbody>
+									<tbody  v-for="(item,index) in korean_schedule" :key="item.id">
 										<tr>
-											<th scope="row">1</th>
-											<td>A1 - Mới bắt đầu</td>
-											<td>Tiếng Hàn KNA1 11</td>
-											<td>Thứ 4 + CN : 19h15 - 21h16</td>
-											<td>10/06/2017</td>
+											<th scope="row">{{index + 1}}</th>
+											<td>{{item.class_level}}</td>
+											<td>{{item.course_id}} {{item.class_id}}</td>
+											<td>{{item.schedule_class}}</td>
+											<td>{{item.open_date}}</td>
 											<td>
 												<button class="btn-danger" data-toggle="modal" data-target="#myModal">Đăng ký</button>
 											</td>
@@ -289,18 +157,16 @@
 					</div>
 					<div class="row">
 						<!--Title Ưu đãi-->
-						<div class="col-xs-12 col-md-12 col-lg-12">
+						<div class="col-xs-12 col-md-12 col-lg-12" >
 							<div class="titleBg">
 								<img src="../assets/images/lichkhaigiang/titleBg.png" class="img-fluid" alt="">
 								<h2>Lưu ý</h2>
 							</div>
-							<p>
-								<span style="color:#ff5600; font-weight:bold">
-									<i class="fa fa-free-code-camp" aria-hidden="true"></i> HỌC PHÍ</span> : Chưa bao gồm giáo trình. Giáo viên: % giáo viên nước ngoài theo khóa học (kèm 2-3 trợ giảng người Việt).</p>
-							<p>
-								<span style="color:#ff5600; font-weight:bold">
-									<i class="fa fa-free-code-camp" aria-hidden="true"></i> ƯU ĐÃI KHỦNG</span> : Tặng ngay vé sinh hoạt CLB trị giá 600.000 đ cho các bạn đăng ký lớp tiếng Anh 0 đồng</b>
-							</p>
+							<div v-for="item in note">
+								<p>
+									<span style="color:#ff5600; font-weight:bold">
+										<i class="fa fa-free-code-camp" aria-hidden="true"></i> {{ item.note_title}}</span> : {{ item.note_content}}</p>
+							</div>
 						</div>
 					</div>
 
@@ -326,56 +192,17 @@
 									<div class="titleSidebar">
 										<h4>Sự kiện mới nhất</h4>
 									</div>
-									<div class="contentSidebar">
-
+									<div class="contentSidebar"  v-for="items in events">
 										<div class="contentsidebarImg">
-											<img src="../assets/images/homepage/events/speaker4.jpg" class="img-fluid" alt="">
+											<img :src="imagePathEvent(items.avatar)" class="img-fluid" alt="">
 										</div>
 										<div class="contentsidebarNews">
-											<h5>Mrs Hoàng Anh</h5>
-											<span style="background: #ff6500;color:white;padding: 5px;display:block;">14/6/2017</span>
+											<h5>{{ items.speaker }}</h5>
+											<span style="background: #ff6500;color:white;padding: 5px;display:block;"> {{ items.start_time }}</span>
 											<a href="">
-												<p> Chia sẻ kinh nghiệm du học Anh</p>
+												<p> {{ items.description }}</p>
 											</a>
 										</div>
-
-										<div class="contentsidebarImg">
-											<img src="../assets/images/homepage/events/speaker1.jpg" class="img-fluid" alt="">
-										</div>
-										<div class="contentsidebarNews">
-											<h5>Mrs Quang Anh</h5>
-											<span style="background: #ff6500;color:white;padding: 5px;display:block;">24/6/2017</span>
-											<a href="">
-												<p> Chia sẻ Chiến lược luyện thi IELTS</p>
-											</a>
-											<p>Muốn đạt điểm cao ở một chương trình thi quốc tế như IELTS bạn cần một cái đầu lạnh và chiến thuật hợp lý...</p>
-										</div>
-
-										<div class="contentsidebarImg">
-											<img src="../assets/images/homepage/events/speaker2.jpg" class="img-fluid" alt="">
-										</div>
-										<div class="contentsidebarNews">
-											<h5>Mr Đào Tuyên</h5>
-											<span style="background: #ff6500;color:white;padding: 5px;display:block;">24/6/2017</span>
-											<a href="">
-												<p> Sinh trắc vân tay và hướng nghiệp</p>
-											</a>
-											<p> Ông hiện là giám đốc học viện đào tạo kỹ năng NLP, cùng Mr Tuyên khám phá sinh trắc vân tay...</p>
-										</div>
-
-										<div class="contentsidebarImg">
-											<img src="../assets/images/homepage/events/speaker3.jpg" class="img-fluid" alt="">
-										</div>
-										<div class="contentsidebarNews">
-											<h5>Mr Bảo</h5>
-											<span style="background: #ff6500;color:white;padding: 5px;display:block;">24/6/2017</span>
-
-											<a href="">
-												<p> Chia sẻ kinh nghiệm viết CV và nộp hồ sơ xin việc</p>
-											</a>
-											<p>Anh bảo hiện đang là trưởng phòng nhân sự của Vingroup,vậy tiêu chí nào...</p>
-										</div>
-
 									</div>
 								</div>
 							</div>
@@ -387,65 +214,6 @@
 
 		</div>
 		<registerform></registerform>
-
-<!--FORM ĐĂNG KÝ TIẾNG ANH-->
-		<!-- Modal -->
-		<div class="modal fade" id="myModalEnglish" tabindex="-1" role="dialog" aria-labelledby="EnglishModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="EnglishModalLabel">Đăng ký lớp tiếng Anh</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="container">
-							<div class="row">
-								<form id="register_tienganh" name="formDangky" method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSeYgqjHl3hmvjZqbbvdwtdbWzLzfPm3DMwhIqzu5Z4fTyoOYg/formResponse">
-									<p>Vui lòng hoàn thành form đăng ký dưới đây và chọn lớp học đăng ký để chúng tôi tiện sắp xếp và liên lạc lại với bạn nhé</p>
-									<div class="table_list">
-										<div class="row formlist">
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-
-													<input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<input type="text" name="entry.496056650" id="tel" placeholder="Điện thoại*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<input type="text" name="entry.653822262" id="email" placeholder="Email*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-												<select class="form-control" name="entry.2027763509">
-													<option value="starter">Bạn muốn đăng ký lớp học</option>
-													<option value="Ngữ âm nền tảng 601 - Thứ 4 - CN: 19h15 - 21h15	">Ngữ âm nền tảng 601 - Thứ 4 - CN: 19h15 - 21h15	</option>
-													<option value="Ngữ âm nền tảng 602 - Thứ 2 - Thứ 5: 19h15 - 21h15">Ngữ âm nền tảng 602	 - Thứ 2 - Thứ 5: 19h15 - 21h15</option>
-													<option value="Ngữ âm nền tảng 603 - Thứ 3 - Thứ 6: 19h15 - 21h15">Ngữ âm nền tảng 603 - Thứ 3 - Thứ 6: 19h15 - 21h15</option>
-													<option value="Giao tiếp Basic 48 - Thứ 2 - Thứ 5: 17h15 - 19h15">Giao tiếp Basic 48 - Thứ 2 - Thứ 5: 17h15 - 19h15</option>
-													<option value="Giao tiếp Basic 49 - Thứ 3 - Thứ 6: 17h15 - 19h15">Giao tiếp Basic 49 - Thứ 3 - Thứ 6: 17h15 - 19h15</option>
-													<option value="Giao tiếp Basic 50 - Thứ 4 - Chủ nhật: 17h15 - 19h15">Giao tiếp Basic 50 - Thứ 4 - Chủ nhật: 17h15 - 19h15</option>
-													<option value="Giao tiếp Advanced 44 -Thứ 5 - Chủ nhật: 9h15 - 11h15">Giao tiếp Advanced 44 -Thứ 5 - Chủ nhật: 9h15 - 11h15</option>
-													<option value="Giao tiếp Advanced 45 -Thứ 2 - Thứ 5: 9h15 - 11h15">Giao tiếp Advanced 45 -Thứ 2 - Thứ 5: 9h15 - 11h15</option>
-													<option value="Giao tiếp Advanced 47-Thứ 3 - Thứ 6: 9h15 - 11h15">Giao tiếp Advanced 47-Thứ 3 - Thứ 6: 9h15 - 11h15</option>
-													<option value="Lịch khác">Tôi muốn đăng ký lịch khác</option>
-												</select>
-											</div>
-										</div>
-									</div><hr style="background:white;">
-										<div id="modalSubmit">
-											<button class="btn btn-primary modalSubmit" type="submit" name="Đăng ký" value="Đăng ký" id="submit">Đăng ký</button>
-											</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG ANH-->
 	<!--FORM ĐĂNG KÝ TIẾNG HÀN-->
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="KoreanModalLabel" aria-hidden="true">
@@ -570,7 +338,6 @@
 										<div class="row formlist">
 											<div class="col-xs-12 col-md-12 col-lg-12">
 
-
 													<input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
 											</div>
 											<div class="col-xs-12 col-md-12 col-lg-12">
@@ -604,21 +371,73 @@
 				</div>
 			</div>
 		</div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG NHẬT-->
+		<registerEnglish	></registerEnglish>
 	</div><!--ĐÓNG THẺ VUE- DON'T REMOVE-->
 </template>
 <script>
+import registerEnglish from '../components/register_english.vue'
 import registerform from '../components/registerform.vue'
+import axios from 'axios'
+import moment from 'moment'
 export default {
   name: 'lichkhaigiang',
   components: {
-    registerform
+    registerform,
+    registerEnglish
+  },
+  data () {
+    return {
+      eng_schedule: [],
+      chinese_schedule: [],
+      japanse_schedule: [],
+      korean_schedule: [],
+      note: [],
+      events: []
+    }
   },
   methods: {
     Register: function () {
       window.$('html, body').animate({
         scrollTop: window.$('#register_hocthumienphi').offset().top - 250
       }, 1000)
+    },
+    imagePathEvent: function (img) {
+      return require('../assets/images/homepage/events/' + img)
     }
+  },
+  created () {
+    // retrieve data from server
+    axios.get(`http://localhost:3000`)
+      .then(res => {
+        res.data.event_sidebar.map(item => {
+          item.start_time = moment(item.starttime).format('DD/MM/YYYY')
+          item.start_hour = moment(item.starttime).format('LTS')
+        })
+      // Format open_date
+        res.data.eng_schedule.map(item => {
+          item.open_date = moment(item.open_date).format('DD/MM/YYYY')
+        })
+        res.data.chinese_schedule.map(item => {
+          item.open_date = moment(item.open_date).format('DD/MM/YYYY')
+        })
+        res.data.japanse_schedule.map(item => {
+          item.open_date = moment(item.open_date).format('DD/MM/YYYY')
+        })
+        res.data.korean_schedule.map(item => {
+          item.open_date = moment(item.open_date).format('DD/MM/YYYY')
+        })
+     // Declare name for data receiveved
+        this.eng_schedule = res.data.eng_schedule
+        this.chinese_schedule = res.data.chinese_schedule
+        this.japanse_schedule = res.data.japanse_schedule
+        this.korean_schedule = res.data.korean_schedule
+        this.note = res.data.note
+        this.events = res.data.event_sidebar
+        console.log(this.events)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
 </script>
@@ -677,7 +496,9 @@ table tbody>tr>td .btn-danger:hover {
 	background: white;
 	border: 1px solid #ff6500;
 }
-
+.table-responsive {
+    display: table;
+}
 .planEng h3 {
 	color: #ff6500;
 	font-size: 30px;

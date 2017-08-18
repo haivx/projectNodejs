@@ -3,7 +3,6 @@ import Router from 'vue-router'
 import homepage from '@/components/homepage'
 import lienhe from '@/components/lienhe'
 import gioithieu from '@/components/gioithieu'
-import tintuc from '@/components/tintuc'
 import loptienganh from '@/components/loptienganh'
 import lichkhaigiang from '@/components/lichkhaigiang'
 import events from '@/components/events'
@@ -21,44 +20,32 @@ export default new Router({
     {
       path: '/lien-he',
       name: 'lienhe',
-      component: lienhe,
-      meta: { breadcrumb: 'Liên Hệ' }
+      component: lienhe
     },
     {
       path: '/gioi-thieu',
       name: 'gioithieu',
-      component: gioithieu,
-      meta: { breadcrumb: 'Hướng dẫn' }
-    },
-    {
-      path: '/tintuc-sukien',
-      name: 'tintuc',
-      component: tintuc,
-      meta: { breadcrumb: 'Tin tức' }
+      component: gioithieu
     },
     {
       path: '/lop-tieng-anh-0-dong',
       name: 'loptienganh',
-      component: loptienganh,
-      meta: { breadcrumb: 'Lớp tiếng Anh' }
+      component: loptienganh
     },
     {
       path: '/lich-khai-giang',
       name: 'lichkhaigiang',
-      component: lichkhaigiang,
-      meta: { breadcrumb: 'Lịch khai giảng' }
+      component: lichkhaigiang
     },
     {
       path: '/sinh-hoat-clb-ngoai-ngu-vi-cong-dong',
       name: 'events',
-      component: events,
-      meta: { breadcrumb: 'Events' }
+      component: events
     },
     {
       path: '/sukien',
       name: 'sukien',
-      component: sukien,
-      meta: { breadcrumb: 'sukien' }
+      component: sukien
     }
   ]
 })

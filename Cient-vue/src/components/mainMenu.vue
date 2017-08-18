@@ -5,7 +5,9 @@
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
-				<a class="navbar-brand logo" href="#"><router-link to="/"><img src="../assets/images/homepage/logo-offical.png" alt=""></router-link></a>
+				<a class="navbar-brand logo" href="#">
+					<router-link to="/"><img v-if="logo[0]" :src="imagePath(logo[0].logo)" alt=""></router-link>
+				</a>
 				<div class="collapse navbar-collapse menuCollapse" id="navbarNav">
 					<ul class="navbar-nav">
 						<li class="nav-item mainMenu-item" @click="hideMenu">
@@ -55,9 +57,18 @@
 <script>
 
 export default {
+  props: ['logo'],
+  data () {
+    return {
+
+    }
+  },
   methods: {
     hideMenu () {
       window.$('.navbar-collapse').collapse('hide')
+    },
+    imagePath: (img) => {
+      return require('../assets/images/homepage/' + img)
     }
   }
 }
@@ -71,7 +82,8 @@ export default {
 
 	.logo img{
     display: block;
-    max-width: 150px;
+    max-width: 100px;
+		max-height: 70px;
     height: auto;
     position: absolute;
 		top: 3px
@@ -91,10 +103,6 @@ export default {
 		padding: 8px 5px;
 		text-decoration: none
 	}
-
-	/* .navbar-light .navbar-nav .mainMenu-item a:hover{
-		color:#FF6500;
-	} */
 
 
 	.menuCollapse {
