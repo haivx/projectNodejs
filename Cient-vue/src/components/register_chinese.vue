@@ -1,9 +1,11 @@
 <template lang="html">
-    <div class="modal fade" id="myModalEnglish" tabindex="-1" role="dialog" aria-labelledby="EnglishModalLabel" aria-hidden="true">
+  <!--FORM ĐĂNG KÝ TIẾNG TRUNG-->
+    <!-- Modal -->
+    <div class="modal fade" id="myModalChinese" tabindex="-1" role="dialog" aria-labelledby="ChineseModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="EnglishModalLabel">Đăng ký lớp tiếng Anh</h5>
+            <h5 class="modal-title" id="ChineseModalLabel">Đăng ký lớp tiếng Trung</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -16,16 +18,16 @@
                   <div class="table_list">
                     <div class="row formlist">
                       <div class="col-xs-12 col-md-12 col-lg-12">
-
+                        <span Class="error"></span>
 
                           <input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
                       </div>
                       <div class="col-xs-12 col-md-12 col-lg-12">
-
+                        <span Class="error"></span>
                         <input type="text" name="entry.496056650" id="tel" placeholder="Điện thoại*" class="form-control">
                       </div>
                       <div class="col-xs-12 col-md-12 col-lg-12">
-
+                        <span Class="error"></span>
                         <input type="text" name="entry.653822262" id="email" placeholder="Email*" class="form-control">
                       </div>
                       <div class="col-xs-12 col-md-12 col-lg-12">
@@ -33,6 +35,7 @@
                           <option value="">Bạn muốn đăng ký lớp học</option>
                           <option v-for="item in schedule">{{ item.course_id}} {{item.open_date}}</option>
                           <option value="Lịch khác">Tôi muốn đăng ký lịch khác</option>
+
                         </select>
                       </div>
                     </div>
@@ -46,7 +49,7 @@
           </div>
         </div>
       </div>
-    </div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG ANH-->
+    </div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG TRUNG-->
 </template>
 
 <script>
@@ -61,7 +64,6 @@ export default {
 </script>
 
 <style lang="css">
-
 .modal-content .modal-header h5 {
 	color: white;
 	font-size: 30px;

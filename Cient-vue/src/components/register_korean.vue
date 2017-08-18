@@ -1,9 +1,11 @@
 <template lang="html">
-    <div class="modal fade" id="myModalEnglish" tabindex="-1" role="dialog" aria-labelledby="EnglishModalLabel" aria-hidden="true">
+  <!--FORM ĐĂNG KÝ TIẾNG HÀN-->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="KoreanModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="EnglishModalLabel">Đăng ký lớp tiếng Anh</h5>
+            <h5 class="modal-title" id="KoreanModalLabel">Đăng ký lớp tiếng Hàn</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -29,8 +31,8 @@
                         <input type="text" name="entry.653822262" id="email" placeholder="Email*" class="form-control">
                       </div>
                       <div class="col-xs-12 col-md-12 col-lg-12">
-                        <select class="form-control" name="entry.2027763509" v-model="selected">
-                          <option value="">Bạn muốn đăng ký lớp học</option>
+                        <select class="form-control" name="entry.2027763509" v-model="selected" >
+                          <option  value="" >Bạn muốn đăng ký lớp học</option>
                           <option v-for="item in schedule">{{ item.course_id}} {{item.open_date}}</option>
                           <option value="Lịch khác">Tôi muốn đăng ký lịch khác</option>
                         </select>
@@ -46,7 +48,8 @@
           </div>
         </div>
       </div>
-    </div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG ANH-->
+    </div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG HÀN-->
+
 </template>
 
 <script>
@@ -61,7 +64,6 @@ export default {
 </script>
 
 <style lang="css">
-
 .modal-content .modal-header h5 {
 	color: white;
 	font-size: 30px;

@@ -16,7 +16,7 @@
         <!-- Het Phan top-->
       </div>
     </div>
-  
+
     <!-- Modal -->
     <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="loginForm" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -31,42 +31,36 @@
           </ul>
           <!-- Tab panes -->
           <div class="tab-content">
-            <div role="tabpanel" class="tab-pane fade in active" id="profile">
+            <div role="tabpanel" class="tab-pane fade in active show" id="profile">
               <form id="form">
                 <label for="Name">Họ tên</label>
                 <br>
                 <input class="square" type="text" name="Họ tên" id="full-name" />
-                
+
                 <br>
                 <label for="dob">Ngày sinh</label>
                 <br>
                 <input class="square" type="text" name="ngày sinh" id="dob" />
                 <br>
-          
-                <label for="add">Địa chỉ</label>
-                <br>
-                <input class="square" type="text" name="Địa chỉ" id="add" />
-                <br>
-                
-                <label for="tel">Điện thoại</label>
-                <br>
-                <input class="square" type="text" name="Điện thoại" id="tel" />
-               
-                <br>
-                <label for="email">Email</label>
-                <br>
-                <input class="square" type="text" name="Email" id="email" />
-                
-                <br>
-                <label for="Password">Password</label>
-                <br>
-                <input class="square" type="password" name="Password" id="Password" />
-                
                 <br>
                 <input class="square btn" type="button" name="Đăng ký" value="Đăng ký" style="margin: 10px;"/>
               </form>
             </div>
-            <div role="tabpanel" class="tab-pane fade" id="buzz">bbb</div>
+            <div role="tabpanel" class="tab-pane fade" id="buzz">
+              <form id="form">
+                <label for="Name">Username</label>
+                <br>
+                <input class="square" type="text" name="Họ tên" id="full-name" />
+
+                <br>
+                <label for="dob">Password</label>
+                <br>
+                <input class="square" type="text" name="ngày sinh" id="dob" />
+                <br>
+                <br>
+                <input class="square btn" type="button" name="Đăng ký" value="Đăng ký" style="margin: 10px;"/>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -160,5 +154,47 @@ export default {
   .menuCollapse {
     background-color: #1e85bd;
   }
+}
+/** Modal **/
+/*#logIn {
+  background:red
+}*/
+.modal-content .modal-header h5 {
+	color: white;
+	font-size: 30px;
+}
+
+#register_tienganh .form-control {
+	margin: 15px auto;
+	border: 1px solid #2c5ba2;
+	border-radius: 10px;
+	font-size: 16px;
+}
+#register_tienganh p{
+	color: white;
+}
+#register_tienganh .formlist {
+	margin-left: 0;
+	margin-right: 0;
+}
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+border: 1px solid #2c5ba2;
+  position: relative;
+  z-index: 1
+}
+#modalSubmit{
+	text-align: center
+}
+.modalSubmit {
+	background: #ff6500;
+	cursor: pointer;
+	border: 2px solid #ff6500;
+	padding: 10px 30px;
+}
+.modalSubmit:hover {
+	border: 2px solid #ff6500;
+	background:white;
+	color: #ff6500;
 }
 </style>

@@ -952,7 +952,7 @@ export default {
 }
 
 .nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
+.nav-tabs .nav-item.show .nav-link{
   border: 5px solid #6fc191;
   position: relative;
   z-index: 1

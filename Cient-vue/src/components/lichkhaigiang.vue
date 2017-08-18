@@ -211,171 +211,22 @@
 				</div>
 
 			</div>
-
 		</div>
+
+		<!--Popup register_form -->
+		<registerEnglish :schedule="eng_schedule"></registerEnglish>
+		<registerJapanese :schedule="japanse_schedule"></registerJapanese>
+		<registerChinese :schedule="chinese_schedule"></registerChinese>
+		<registerKorean :schedule="korean_schedule"></registerKorean>
+		<!--General register_form-->
 		<registerform></registerform>
-	<!--FORM ĐĂNG KÝ TIẾNG HÀN-->
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="KoreanModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="KoreanModalLabel">Đăng ký lớp tiếng Hàn</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="container">
-							<div class="row">
-								<form id="register_tienganh" name="formDangky" method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSeYgqjHl3hmvjZqbbvdwtdbWzLzfPm3DMwhIqzu5Z4fTyoOYg/formResponse">
-									<p>Vui lòng hoàn thành form đăng ký dưới đây và chọn lớp học đăng ký để chúng tôi tiện sắp xếp và liên lạc lại với bạn nhé</p>
-									<div class="table_list">
-										<div class="row formlist">
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-
-													<input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<input type="text" name="entry.496056650" id="tel" placeholder="Điện thoại*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<input type="text" name="entry.653822262" id="email" placeholder="Email*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-												<select class="form-control" name="entry.2027763509">
-													<option value="starter">Bạn muốn đăng ký lớp học</option>
-													<option value="KNA1 - Thứ 4 + CN :19h15 - 21h16">KNA1 - Thứ 4 + CN :19h15 - 21h16</option>
-													<option value="Lịch khác">Tôi muốn đăng ký lịch khác</option>
-
-												</select>
-											</div>
-										</div>
-									</div><hr style="background:white;">
-										<div id="modalSubmit">
-											<button class="btn btn-primary modalSubmit" type="submit" name="Đăng ký" value="Đăng ký" id="submit">Đăng ký</button>
-											</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG HÀN-->
-	<!--FORM ĐĂNG KÝ TIẾNG TRUNG-->
-		<!-- Modal -->
-		<div class="modal fade" id="myModalChinese" tabindex="-1" role="dialog" aria-labelledby="ChineseModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="ChineseModalLabel">Đăng ký lớp tiếng Trung</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="container">
-							<div class="row">
-								<form id="register_tienganh" name="formDangky" method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSeYgqjHl3hmvjZqbbvdwtdbWzLzfPm3DMwhIqzu5Z4fTyoOYg/formResponse">
-									<p>Vui lòng hoàn thành form đăng ký dưới đây và chọn lớp học đăng ký để chúng tôi tiện sắp xếp và liên lạc lại với bạn nhé</p>
-									<div class="table_list">
-										<div class="row formlist">
-											<div class="col-xs-12 col-md-12 col-lg-12">
-												<span Class="error"></span>
-
-													<input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-												<span Class="error"></span>
-												<input type="text" name="entry.496056650" id="tel" placeholder="Điện thoại*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-												<span Class="error"></span>
-												<input type="text" name="entry.653822262" id="email" placeholder="Email*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-												<select class="form-control" name="entry.2027763509">
-													<option value="starter">Bạn muốn đăng ký lớp học</option>
-													<option value="Tiếng Trung CNA1 11 - Thứ 4 + CN: 19h15 - 21h16">Tiếng Trung CNA1 11 - Thứ 4 + CN: 19h15 - 21h16</option>
-													<option value="Tiếng Trung CNA1 12	 - Thứ 3 + Thứ 6: 19h15 - 21h15">Tiếng Trung CNA1 12	 - Thứ 3 + Thứ 6: 19h15 - 21h15</option>
-													<option value="Tiếng Trung CNA1 13 - Thứ 4 + CN: 19h15 - 21h16">Tiếng Trung CNA1 13 - Thứ 4 + CN: 19h15 - 21h16</option>
-													<option value="Lịch khác">Tôi muốn đăng ký lịch khác</option>
-
-												</select>
-											</div>
-										</div>
-									</div><hr style="background:white;">
-										<div id="modalSubmit">
-											<button class="btn btn-primary modalSubmit" type="submit" name="Đăng ký" value="Đăng ký" id="submit">Đăng ký</button>
-											</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG TRUNG-->
-			<!--FORM ĐĂNG KÝ TIẾNG NHẬT-->
-		<!-- Modal -->
-		<div class="modal fade" id="myModalJapanese" tabindex="-1" role="dialog" aria-labelledby="JapaneseModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 class="modal-title" id="JapaneseModalLabel">Đăng ký lớp tiếng Nhật</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<div class="container">
-							<div class="row">
-								<form id="register_tienganh" name="formDangky" method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSeYgqjHl3hmvjZqbbvdwtdbWzLzfPm3DMwhIqzu5Z4fTyoOYg/formResponse">
-									<p>Vui lòng hoàn thành form đăng ký dưới đây và chọn lớp học đăng ký để chúng tôi tiện sắp xếp và liên lạc lại với bạn nhé</p>
-									<div class="table_list">
-										<div class="row formlist">
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-													<input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<input type="text" name="entry.496056650" id="tel" placeholder="Điện thoại*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<input type="text" name="entry.653822262" id="email" placeholder="Email*" class="form-control">
-											</div>
-											<div class="col-xs-12 col-md-12 col-lg-12">
-
-												<select class="form-control" name="entry.2027763509">
-													<option value="starter">Bạn muốn đăng ký lớp học</option>
-													<option value="Tiếng Nhật JNA1 11 - Thứ 4 + CN: 19h15 - 21h16">Tiếng Nhật JNA1 11 - Thứ 4 + CN: 19h15 - 21h16</option>
-													<option value="Tiếng Nhật JNA1 12 - Thứ 3 + Thứ 6: 19h15 - 21h15">Tiếng Nhật JNA1 12 - Thứ 3 + Thứ 6: 19h15 - 21h15</option>
-													<option value="Tiếng Nhật JNA1 13 -  Thứ 4 + CN: 19h15 - 21h16">Tiếng Nhật JNA1 13 -  Thứ 4 + CN: 19h15 - 21h16</option>
-													<option value="Lịch khác">Tôi muốn đăng ký lịch khác</option>
-
-												</select>
-											</div>
-										</div>
-									</div><hr style="background:white;">
-										<div id="modalSubmit">
-											<button class="btn btn-primary modalSubmit" type="submit" name="Đăng ký" value="Đăng ký" id="submit">Đăng ký</button>
-											</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	<!--HẾT FORM ĐĂNG KÝ TIẾNG NHẬT-->
-		<registerEnglish	></registerEnglish>
 	</div><!--ĐÓNG THẺ VUE- DON'T REMOVE-->
 </template>
 <script>
 import registerEnglish from '../components/register_english.vue'
+import registerJapanese from '../components/register_japanese.vue'
+import registerChinese from '../components/register_chinese.vue'
+import registerKorean from '../components/register_korean.vue'
 import registerform from '../components/registerform.vue'
 import axios from 'axios'
 import moment from 'moment'
@@ -383,7 +234,10 @@ export default {
   name: 'lichkhaigiang',
   components: {
     registerform,
-    registerEnglish
+    registerEnglish,
+    registerJapanese,
+    registerChinese,
+    registerKorean
   },
   data () {
     return {
@@ -644,46 +498,5 @@ table tbody>tr>td .btn-danger:hover {
 	.sidebar .hotLine p {
 		padding-left: 30px;
 	}
-}
-
-
-
-/**CSS CHO MODAL FORM**/
-
-.modal-content .modal-header h5 {
-	color: white;
-	font-size: 30px;
-}
-
-#register_tienganh .form-control {
-	margin: 15px auto;
-	border: 1px solid #2c5ba2;
-	border-radius: 10px;
-	font-size: 16px;
-}
-#register_tienganh p{
-	color: white;
-}
-#register_tienganh .formlist {
-	margin-left: 0;
-	margin-right: 0;
-}
-
-.modal-content {
-	background:#2c5ba2
-}
-#modalSubmit{
-	text-align: center
-}
-.modalSubmit {
-	background: #ff6500;
-	cursor: pointer;
-	border: 2px solid #ff6500;
-	padding: 10px 30px;
-}
-.modalSubmit:hover {
-	border: 2px solid #ff6500;
-	background:white;
-	color: #ff6500;
 }
 </style>
