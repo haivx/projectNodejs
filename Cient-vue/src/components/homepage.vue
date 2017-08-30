@@ -213,7 +213,7 @@
       </div>
       <div class="row upcomingEvents text-center">
         <div class="col-xs-12 col-lg-12 col md-12">
-          <!-- Nav tabs -->
+        <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist" >
             <li class="nav-item" v-for="(item, index, key) in info" :key="item.key">
               <a class="nav-link" :class="{active: index==0 ? true : false}" data-toggle="tab" :href="`#date${index+1}`" role="tab">
@@ -225,11 +225,11 @@
               </a>
             </li>
           </ul>
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane ":id="`date${index+1}`"  :class="{active: index==0 ? true : false}" role="tabpanel " aria-expanded="true" v-for="(item, index) in info">
-              <div class="row eventContent">
-                <div class="col-xs-12 col-md-2 col-lg-2  ">
+           <!-- Tab panes  -->
+            <div class="tab-content">
+            <div class="tab-pane ":id="`date${index+1}`"  :class="{active: index==0 ? true : false}" role="tabpanel " aria-expanded="true" v-for="(item, index) in info" :key="item.id">
+            <div class="row eventContent">
+                 <div class="col-xs-12 col-md-2 col-lg-2 ">
                   <div class="time-area">
                     <h4 class="time">{{item.start_hour}}
                     </h4>
@@ -259,11 +259,11 @@
                     </router-link>
                   </div>
                 </div>
-              </div>
             </div>
-          </div>
+            </div> 
+          </div> 
         </div>
-      </div>
+      </div> -->
       <!--<div class="moreEvent"><div class="btn btn-danger">Tìm hiểu thêm</div></div>-->
     </div>
     <!--  Hết Content 7 - UPCOMING EVENT-->
@@ -401,7 +401,6 @@
     <!--  Content 8 - THANH SCROLL-->
     <app-iconscroll></app-iconscroll>
   </div>
-
   <!--Đóng Khung template Vue/ don't remove-->
 </template>
 <script>

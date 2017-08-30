@@ -83,9 +83,9 @@ export default {
 	margin-right: 0;
 }
 
-.modal-content {
+/* .modal-content {
 	background:#2c5ba2
-}
+} */
 #modalSubmit{
 	text-align: center
 }

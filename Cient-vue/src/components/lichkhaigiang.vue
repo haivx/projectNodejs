@@ -24,7 +24,7 @@
 						<div class="col-xs-12 col-md-12 col-lg-12">
 							<!-- Lịch khai giảng lớp tiếng Anh-->
 							<div class="planEng">
-								<h3>Lớp tiếng Anh </h3>
+								<h3>Lớp tiếng Anh</h3>
 								<table class="table table-hover table-bordered table-striped table-responsive " >
 									<thead >
 										<tr>
@@ -40,7 +40,7 @@
 										<tr>
 											<th scope="row">{{index + 1}}</th>
 											<td>{{item.class_level}}</td>
-											<td>{{item.course_id}} {{item.class_id}}</td>
+											<td>{{item.course_id}} {{item.class_id}}</td>	
 											<td>{{item.schedule_class}}</td>
 											<td>{{item.open_date}}</td>
 											<td>
@@ -82,9 +82,7 @@
 									</tbody>
 								</table>
 							</div>
-
 							<!-- Hết Lịch khai giảng lớp tiếng Trung-->
-
 						</div>
 						<div class="col-xs-12 col-md-12 col-lg-12">
 							<!-- Lịch khai giảng lớp tiếng Nhật-->
@@ -117,13 +115,11 @@
 								</table>
 							</div>
 							<!-- Hết Lịch khai giảng lớp tiếng Nhật-->
-
 						</div>
 						<div class="col-xs-12 col-md-12 col-lg-12">
-							<!-- Lịch khai giảng lớp tiếng Nhật-->
+							<!-- Lịch khai giảng lớp tiếng Hàn-->
 							<div class="planKorea" v-if="korean_schedule">
 								<h3>Lớp tiếng Hàn</h3>
-
 								<table class="table table-hover table-bordered table-striped table-responsive ">
 									<thead>
 										<tr>
@@ -146,12 +142,10 @@
 												<button class="btn-danger" data-toggle="modal" data-target="#myModal">Đăng ký</button>
 											</td>
 										</tr>
-
 									</tbody>
 								</table>
 							</div>
 							<!-- Hết Lịch khai giảng lớp tiếng Hàn-->
-
 						</div>
 
 					</div>
@@ -162,7 +156,7 @@
 								<img src="../assets/images/lichkhaigiang/titleBg.png" class="img-fluid" alt="">
 								<h2>Lưu ý</h2>
 							</div>
-							<div v-for="item in note">
+							<div v-for="item in note" :key="item.id">
 								<p>
 									<span style="color:#ff5600; font-weight:bold">
 										<i class="fa fa-free-code-camp" aria-hidden="true"></i> {{ item.note_title}}</span> : {{ item.note_content}}</p>
@@ -192,7 +186,7 @@
 									<div class="titleSidebar">
 										<h4>Sự kiện mới nhất</h4>
 									</div>
-									<div class="contentSidebar"  v-for="items in events">
+									<div class="contentSidebar"  v-for="items in events" :key="items.id">
 										<div class="contentsidebarImg">
 											<img :src="imagePathEvent(items.avatar)" class="img-fluid" alt="">
 										</div>
@@ -209,7 +203,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
@@ -261,7 +254,7 @@ export default {
   },
   created () {
     // retrieve data from server
-    axios.get(`http://localhost:3000`)
+    axios.get(`http://localhost:3000/lich-khai-giang`)
       .then(res => {
         res.data.event_sidebar.map(item => {
           item.start_time = moment(item.starttime).format('DD/MM/YYYY')
@@ -287,7 +280,7 @@ export default {
         this.korean_schedule = res.data.korean_schedule
         this.note = res.data.note
         this.events = res.data.event_sidebar
-        console.log(this.events)
+        // console.log(this.events)
       })
       .catch(error => {
         console.error(error)

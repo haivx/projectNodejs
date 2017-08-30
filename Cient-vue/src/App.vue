@@ -35,7 +35,7 @@
       axios.get(`http://localhost:3000`)
         .then(res => {
           this.general = res.data.general
-          console.log(this.general)
+          // console.log(this.general)
         })
         .catch(error => {
           console.error(error)
