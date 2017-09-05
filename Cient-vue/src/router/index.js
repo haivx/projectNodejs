@@ -7,6 +7,7 @@ import loptienganh from '@/components/loptienganh'
 import lichkhaigiang from '@/components/lichkhaigiang'
 import events from '@/components/events'
 import sukien from '@/components/sukien'
+import dashboard from '@/components/dashboard'
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +47,11 @@ export default new Router({
       path: '/sukien',
       name: 'sukien',
       component: sukien
+    },
+    {
+      path: '/dashboard',
+      name: 'dashboard',
+      component: dashboard
     }
   ]
 })

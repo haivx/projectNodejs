@@ -11,7 +11,7 @@
             <a id="loginBtn" data-toggle="modal" data-target="#logIn">Đăng nhập</a>
             <a id="regisBtn" data-toggle="modal" data-target="#logIn">Đăng ký</a>
           </div>
-          <!--Het Phan Đăng nhập Đăng ký -->
+          <!--Het Phan Đăng nhập - Đăng ký -->
         </div>
         <!-- Het Phan top-->
       </div>
@@ -34,7 +34,7 @@
             <div role="tabpanel" class="tab-pane fade in active show" id="profile">
               <form id="form-dangky" @submit.prevent="submit" autocomplete="on">
                 <br>
-                                <span v-if="msg[0]">{{msg}}</span> 
+                <span v-if="msgServer[0]">{{msgServer}}</span> 
                 <br>
                 <label for="username">Username</label>
                 <br>
@@ -65,19 +65,20 @@
               </form>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="buzz">
-              <form id="form-dangky" >
+              <form id="form-dangnhap"  @submit.prevent="signIn" method="POST">
                 <br>
-                <label for="Name">Username</label>
+                   <span v-if="msgServer[0]">{{msgServer}}</span>
                 <br>
-                <input type="text" name="Họ tên" id="full-name" />
+                <label for="usernameLogin">Username</label>
+                <br>
+                <input type="text" name="Họ tên" id="usernameLogin" required v-model="usernameLogin"/>
 
                 <br>
-                <label for="dob">Password</label>
+                <label for="passwordLogin">Password</label>
                 <br>
-                <input type="text" name="ngày sinh" id="dob" />
-
+                <input type="password" name="password" id="passwordLogin" required v-model="passwordLogin"/>
                 <br>
-                <button class="btn btn-primary" type="submit" style="margin: 10px;">Đăng nhập</button>
+                <button class="btn btn-primary" type="submit">Đăng nhập</button>
               </form>
             </div>
           </div>
@@ -90,6 +91,7 @@
 
 <script>
 import axios from 'axios'
+import Router from '../router'
 export default {
   data () {
     return {
@@ -99,7 +101,10 @@ export default {
       password: '',
       tel: '',
       confirmPassword: '',
-      msg: []
+      msg: [],
+      msgServer: [],
+      usernameLogin: '',
+      passwordLogin: ''
     }
   },
   watch: {
@@ -119,7 +124,7 @@ export default {
       // delete data.confirmPassword
       // delete data.msg
       // console.log(data)
-      axios.post(`http://localhost:3000/`, {
+      axios.post(`http://localhost:3000/register`, {
         data
       })
       .then(res => {
@@ -129,16 +134,15 @@ export default {
         this.tel = ''
         this.password = ''
         this.confirmPassword = ''
-        this.msg = res.data.msg
+        this.msgServer = res.data.msg
         // console.log(this.msg)
-        // this.username = ''
       })
       .catch(err => {
         console.log(err)
       })
     },
     checkPassword (value) {
-      if (value.length < 6) {
+      if (value.length < 6 && value.length > 0) {
         this.msg['password'] = 'Password must be at least 6'
       } else {
         this.msg['password'] = ''
@@ -150,6 +154,23 @@ export default {
       } else {
         this.msg['confirmPassword'] = "Password doesn't match"
       }
+    },
+    signIn () {
+      let username = this.usernameLogin
+      let password = this.passwordLogin
+      axios.post(`http://localhost:3000/login`, {
+        username,
+        password
+      })
+      .then(data => {
+        this.msgServer = data.data.msg
+        console.log(this.msgServer)
+        Router.push('/dashboard')
+        setTimeout(() => {
+          window.$('.modal').modal('hide')
+        }, 1000)
+      })
+      .catch(error => console.log(error))
     }
   }
 }
@@ -161,11 +182,11 @@ export default {
   color: green;
 }
 
-#form-dangky {
+#form-dangky, #form-dangnhap {
   text-align: center
 }
 
-#form-dangky input {
+#form-dangky input, #form-dangnhap input {
   margin-bottom: 7px;
 }
 
@@ -178,6 +199,7 @@ export default {
 
 button {
   cursor: pointer;
+  margin-bottom: 7px;
 }
 
 #contactNum {
@@ -246,10 +268,6 @@ button {
     background-color: #1e85bd;
   }
 }
-
-
-/** Modal **/
-
 
 /*#logIn {
   background:red

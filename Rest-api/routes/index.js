@@ -3,13 +3,26 @@ const events = require('../models/events');
 const course = require('../models/course');
 const general = require('../models/general');
 const newspaper = require('../models/newspaper');
-const note = require('../models/note')
+const note = require('../models/note');
 const {db, } = require('../pgp');
 const User = require('../models/users');
-
+const session = require('express-session');
+const passport = require('passport');
+require('../passport/local')(passport);
+require('../passport/passport')(passport);
 module.exports = (express) => {
   router = express.Router();
 
+  router.use(session({
+    cookie: { maxAge: 60000 },
+    secret: 'keysecret',
+    saveUninitialized: false,
+    resave: false
+  }));
+  
+  router.use(passport.initialize());
+  router.use(passport.session());
+  
   router.get('/',(req,res) =>{
     db.task(t => {
       return t.batch([
@@ -36,9 +49,7 @@ module.exports = (express) => {
           console.log('error')
       });
   })
-  .post('/', (req,res) => {
-
-    // console.log(req.body.data);
+  router.post('/register', (req,res) => {
     let username = req.body.data.username;
     let email = req.body.data.email
     let fullname = req.body.data.fullName
@@ -58,15 +69,19 @@ module.exports = (express) => {
              //Mặc định giá trị role_id là 3
               const role_id = 3;
               // console.log(newId);
-              // console.log(req.body.data.username);
-              User.insertUser(newId,username, password, telephone_number, fullname, email,role_id)
-              .then((data) => {
-                console.log(data);
-                res.json({msg:'Đăng ký thành công, bạn có thể đăng nhập'})
-              })
-              .catch( error => {
-                res.json({msg:'Đăng ký không thành công'})
-              })
+              // console.log(data.password);
+                //Hash the password
+              const hash =  User.hashPassword(data.password)
+                .then(function(hash) {
+                  // console.log('hash',hash);
+                  User.insertUser(newId,username, hash, telephone_number, fullname, email,role_id)
+                  .then((data) => {
+                    res.json({msg:'Đăng ký thành công, bạn có thể đăng nhập'})
+                  })
+                  .catch( error => {
+                    res.json({msg:'Đăng ký không thành công'})
+                  })
+               });
             })
             .catch (error => {
               console.log(error)
@@ -77,7 +92,13 @@ module.exports = (express) => {
           console.log(error);
         })
         
-  })
+  });
+  router.post('/login',
+    passport.authenticate('local', { 
+      successFlash: 'Welcome!',
+      failureFlash: 'Invalid username or password.'
+    })
+  );
   router.get('/lich-khai-giang', (req,res) => {
     db.task( t => {
       return t.batch([
