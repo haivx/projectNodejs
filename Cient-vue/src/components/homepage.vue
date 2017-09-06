@@ -423,6 +423,7 @@ export default {
     'app-iconscroll': iconscroll
   },
   created () {
+    document.title = 'Trang chủ'
     // retrieve data from server
     axios.get(`http://localhost:3000`)
     .then(res => {

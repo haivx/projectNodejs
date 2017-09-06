@@ -253,6 +253,7 @@ export default {
     }
   },
   created () {
+    document.title = 'Lịch khai giảng'
     // retrieve data from server
     axios.get(`http://localhost:3000/lich-khai-giang`)
       .then(res => {

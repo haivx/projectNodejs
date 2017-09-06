@@ -6,7 +6,7 @@
                 <div class="col-xs-12 col-md-9 col-lg-9">
                     <div class="infoEvent">
                         <div class="infoImg">
-                            <img src="../assets/images/tintuc/event-1.jpg" class="img-fluid" alt="">
+                            <img src="../assets/images/event/event-1.jpg" class="img-fluid" alt="">
                         </div>
                         <div class="infoContent">
                             <div class="row">
@@ -23,7 +23,7 @@
                                     <h3>NGƯỜI CHIA SẺ</h3>
                                     <div class="participantEvent">
                                             <div class="participant">
-                                                <img src="../assets/images/tintuc/Ms-Hang.jpg" alt="">
+                                                <img src="../assets/images/event/Ms-Hang.jpg" alt="">
                                             </div>
                                             <div class="portfoParticipant">
                                                 <h5>Ms HẰNG V.O</h5>
@@ -100,17 +100,37 @@
                       <!--Hết phần đăng ký Events-->
                       <div class="upEvent">
                           <h3>UPCOMING EVENT</h3>
-                          <img src="../assets/images/tintuc/Ms-Hang.jpg" class="img-fluid" alt="">
+                          <img src="../assets/images/event/Ms-Hang.jpg" class="img-fluid" alt="">
                           <h5>Chia sẻ:  Ms Hằng <br> <hr> Founder - Community Language Club</h5>
                           <p>Sinh hoạt định kỳ Câu lạc bộ. Chia sẻ bí kíp giao tiếp tiếng Anh trong công việc</p>
                       </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 </template>
+<script>
+import axios from 'axios'
+export default {
+  watch: {
+    '$route': 'fetchData'
+  },
+  created () {
+    this.fetchData()
+  },
+  methods: {
+    fetchData () {
+      axios.get(`http://localhost:3000/event-detail/` + this.$route.params.id + '/')
+        .then(res => {
+          console.log(res)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  }
+}
+</script>
 <style>
 .events {
     margin-top: 150px;

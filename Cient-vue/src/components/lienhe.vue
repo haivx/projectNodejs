@@ -73,7 +73,13 @@
     </div>
  
 </template>
-
+<script>
+export default {
+  created () {
+    document.title = 'Liên hệ'
+  }
+}
+</script>
 <style scoped>
 .titleContact p{
     font-size: 17px;

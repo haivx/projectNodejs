@@ -62,7 +62,7 @@
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3>{{item.title}}</h3>
+                  <h3><a href="">{{item.title}}</a></h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                   <span>{{item.start_hours}} - {{item.finish_hours}}</span>
                   <br>
@@ -77,10 +77,6 @@
                   <img :src="imagePath(item.background_image)" class="img-fluid" alt="">
                 </div>
               </div>
-                            <div class="col-xs-12 col-md-12 col-lg-12">             
-                 <div class="dangkyEvent ">
-                <div class="btn btn-danger">Tìm hiểu thêm</div>
-              </div></div>
             </div>
           </div>
           <div class="tab-pane " id="date3" role="tabpanel" v-if="expired">
@@ -91,7 +87,7 @@
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3>{{item.title}}</h3>
+                  <h3><a href="">{{item.title}}</a></h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                   <span>{{item.start_hours}} - {{item.finish_hours}} </span>
                   <br>
@@ -125,7 +121,9 @@ export default {
     }
   },
   created () {
-    axios.get(`http://localhost:3000/sukien`)
+    document.title = 'Tin tức - sự kiện'
+    const BaseUrl = 'http://localhost:3000/'
+    axios.get(`${BaseUrl}sukien`)
       .then(res => {
         console.log(res.data)
         res.data.expired.map(item => {
@@ -205,7 +203,9 @@ export default {
 #eventContent {
   margin-top: 20px
 }
-
+#eventContent a:hover {
+  text-decoration: none
+}
 #eventContent .fa {
   margin-right: 10px;
   color: #ff6500

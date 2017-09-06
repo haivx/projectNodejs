@@ -5,9 +5,10 @@ import lienhe from '@/components/lienhe'
 import gioithieu from '@/components/gioithieu'
 import loptienganh from '@/components/loptienganh'
 import lichkhaigiang from '@/components/lichkhaigiang'
-import events from '@/components/events'
-import sukien from '@/components/sukien'
+import eventDetail from '@/components/event_detail'
+import event from '@/components/event'
 import dashboard from '@/components/dashboard'
+import dynamicRoute from '@/components/dynamicRoute'
 Vue.use(Router)
 
 export default new Router({
@@ -39,14 +40,19 @@ export default new Router({
       component: lichkhaigiang
     },
     {
-      path: '/sinh-hoat-clb-ngoai-ngu-vi-cong-dong',
-      name: 'events',
-      component: events
+      path: '/event-detail',
+      name: 'event_detail',
+      component: eventDetail
     },
     {
-      path: '/sukien',
-      name: 'sukien',
-      component: sukien
+      path: '/event-detail/:id',
+      name: 'dynamicRoute',
+      component: dynamicRoute
+    },
+    {
+      path: '/event',
+      name: 'event',
+      component: event
     },
     {
       path: '/dashboard',

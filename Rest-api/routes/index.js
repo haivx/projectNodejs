@@ -51,6 +51,8 @@ module.exports = (express) => {
           console.log('error')
       });
   })
+
+  //Đăng ký đăng nhập
   router.post('/register', (req,res) => {
     let username = req.body.data.username;
     let email = req.body.data.email
@@ -109,7 +111,8 @@ module.exports = (express) => {
   router.get('/loginfailed', (req,res) => {
     res.json({msg:'Login failed'})
   });
-  
+
+//Page Event
   router.get('/sukien', (req,res) => {
       db.task( t => {
         return t.batch([
@@ -127,6 +130,18 @@ module.exports = (express) => {
       })
   })
 
+//Page Event detail
+  router.get('/event-detail/', (req,res) => {
+    return  events.expired_event()
+       .then( data => {
+         res.json(data)
+       })
+       .catch (error => {
+         console.log(error);
+       })
+   })
+ 
+//Page lịch khai giảng
   router.get('/lich-khai-giang', (req,res) => {
     db.task( t => {
       return t.batch([
@@ -161,5 +176,9 @@ module.exports = (express) => {
       })
     })
   })
+
+
+
+
   return router;
 }

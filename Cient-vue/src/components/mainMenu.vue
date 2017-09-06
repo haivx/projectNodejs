@@ -42,7 +42,7 @@
 							</ul>
 						</li>
 						<li class="nav-item mainMenu-item" @click="hideMenu">
-							<a class="nav-link" href="#"><router-link to="sukien">Tin tức - sự kiện</router-link></a>
+							<a class="nav-link" href="#"><router-link to="event">Tin tức - sự kiện</router-link></a>
 						</li>
 						<li class="nav-item mainMenu-item" @click="hideMenu">
 							<a class="nav-link" href="#"> <router-link to="lien-he">Liên hệ</router-link></a>

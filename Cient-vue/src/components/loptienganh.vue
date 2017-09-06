@@ -324,6 +324,9 @@ export default {
         scrollTop: window.$('#register_hocthumienphi').offset().top - 150
       }, 1000)
     }
+  },
+  created () {
+    document.title = 'Lớp tiếng Anh 0 Đồng'
   }
 }
 </script>

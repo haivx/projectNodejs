@@ -160,7 +160,9 @@
 <script>
 
 export default {
-
+  created () {
+    document.title = 'Về chúng tôi'
+  }
 }
 </script>
 
