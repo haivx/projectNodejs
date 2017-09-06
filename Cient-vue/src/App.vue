@@ -5,7 +5,7 @@
       <transition name="fade">
         <router-view></router-view>
     </transition>
-    <app-footer></app-footer>
+    <app-footer :logo="general"></app-footer>
   </div>
 </template>
 

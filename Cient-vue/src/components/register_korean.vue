@@ -3,7 +3,7 @@
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="KoreanModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content form-modal">
           <div class="modal-header">
             <h5 class="modal-title" id="KoreanModalLabel">Đăng ký lớp tiếng Hàn</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -18,8 +18,6 @@
                   <div class="table_list">
                     <div class="row formlist">
                       <div class="col-xs-12 col-md-12 col-lg-12">
-
-
                           <input type="text" name="entry.350283165" id="name" placeholder="Họ và tên*" class="form-control">
                       </div>
                       <div class="col-xs-12 col-md-12 col-lg-12">
@@ -68,7 +66,9 @@ export default {
 	color: white;
 	font-size: 30px;
 }
-
+.form-modal {
+  background: green
+}
 #register_tienganh .form-control {
 	margin: 15px auto;
 	border: 1px solid #2c5ba2;

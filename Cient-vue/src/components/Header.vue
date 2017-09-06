@@ -16,7 +16,6 @@
         <!-- Het Phan top-->
       </div>
     </div>
-
     <!-- Modal -->
     <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="loginForm" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -163,12 +162,19 @@ export default {
         password
       })
       .then(data => {
-        this.msgServer = data.data.msg
-        console.log(this.msgServer)
-        Router.push('/dashboard')
-        setTimeout(() => {
-          window.$('.modal').modal('hide')
-        }, 1000)
+        console.log(data)
+        let result = data.data.msg
+        console.log('result', result)
+        if (result === 'Login successful') {
+          this.msgServer = 'Đăng nhập thành công!'
+          Router.push('/dashboard')
+          setTimeout(() => {
+            window.$('.modal').modal('hide')
+          }, 1000)
+        } else {
+          Router.push('/')
+          this.msgServer = 'Thông tin không chính xác, vui lòng điền lại'
+        }
       })
       .catch(error => console.log(error))
     }

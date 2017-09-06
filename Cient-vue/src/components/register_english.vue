@@ -1,7 +1,7 @@
 <template lang="html">
     <div class="modal fade" id="myModalEnglish" tabindex="-1" role="dialog" aria-labelledby="EnglishModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content form-modal">
           <div class="modal-header">
             <h5 class="modal-title" id="EnglishModalLabel">Đăng ký lớp tiếng Anh</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -66,7 +66,9 @@ export default {
 	color: white;
 	font-size: 30px;
 }
-
+.form-modal {
+  background: green
+}
 #register_tienganh .form-control {
 	margin: 15px auto;
 	border: 1px solid #2c5ba2;

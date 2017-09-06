@@ -6,12 +6,14 @@ const newspaper = require('../models/newspaper');
 const note = require('../models/note');
 const {db, } = require('../pgp');
 const User = require('../models/users');
+const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
 require('../passport/local')(passport);
 require('../passport/passport')(passport);
 module.exports = (express) => {
   router = express.Router();
+  router.use(flash());
 
   router.use(session({
     cookie: { maxAge: 60000 },
@@ -69,7 +71,6 @@ module.exports = (express) => {
              //Mặc định giá trị role_id là 3
               const role_id = 3;
               // console.log(newId);
-              // console.log(data.password);
                 //Hash the password
               const hash =  User.hashPassword(data.password)
                 .then(function(hash) {
@@ -93,12 +94,39 @@ module.exports = (express) => {
         })
         
   });
+
+  //Authentication
   router.post('/login',
-    passport.authenticate('local', { 
-      successFlash: 'Welcome!',
-      failureFlash: 'Invalid username or password.'
-    })
-  );
+  passport.authenticate('local',{
+    failureRedirect: '/loginfailed',
+    failureFlash: true
+  }),
+  function(req, res) {
+    // If this function gets called, authentication was successful.
+    res.json({msg:'Login successful'});
+  });
+  //Login fail, return fail message
+  router.get('/loginfailed', (req,res) => {
+    res.json({msg:'Login failed'})
+  });
+  
+  router.get('/sukien', (req,res) => {
+      db.task( t => {
+        return t.batch([
+          events.happening_event(),
+          events.upcoming_event(),
+          events.expired_event()
+        ])
+      })
+      .then( data => {
+        res.json({
+          happening: data[0],
+          upcoming:data[1],
+          expired: data[2]
+        })
+      })
+  })
+
   router.get('/lich-khai-giang', (req,res) => {
     db.task( t => {
       return t.batch([

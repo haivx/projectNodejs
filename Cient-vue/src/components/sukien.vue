@@ -7,12 +7,12 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
           <li class="nav-item ">
-            <a class="nav-link active" data-toggle="tab" href="#date1" role="tab">
+            <a class="nav-link " data-toggle="tab" href="#date1" role="tab">
               HAPPENING
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="tab" href="#date2" role="tab">
+            <a class="nav-link active" data-toggle="tab" href="#date2" role="tab">
               UPCOMING
             </a>
           </li>
@@ -24,84 +24,57 @@
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-          <div class="tab-pane active " id="date1" role="tabpanel">
-            <div class="row event1">
+          <div class="tab-pane " id="date1" role="tabpanel" v-if="happening">
+            <div class="row event1" v-for="items in happening" :key="items.id">
               <div class="col-xs-12 col-md-3 col-lg-3">
-                <span class="date">02</span>
-                <span class="month">Tháng 7</span>
+                <span class="date">{{items.start_date}}</span>
+                <span class="month">Tháng {{items.start_month}}</span>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3>Buổi sinh hoạt thường kỳ của Câu lạc bộ</h3>
+                  <h3>{{items.title}}</h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <span>15:PM - 17:PM </span>
+                  <span>{{items.start_hours}} - {{items.finish_hours}}</span>
                   <br>
                   <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                  <span>Số 619 Nguyễn Trãi, Thanh Xuân, Hà Nội</span>
+                  <span>{{items.address}}</span>
                   <hr>
-                  <p>Buổi sinh hoạt thường kỳ của câu lạc bộ Communnity Language Club sẽ diễn ra vào chủ nhật hàng tuần. Các học viên muốn tham gia cần đăng ký trước để được chuẩn bị chủ đề và tài liệu trước khi tham gia.</p>
+                  <p>{{items.description}}</p>
                 </div>
               </div>
               <div class="col-xs-12 col-md-3 col-lg-3">
                 <div class="eventImg">
-                  <img src="../assets/images/tintuc/blog22.jpg" class="img-fluid" alt="">
+                  <img :src="imagePath(items.background_image)" class="img-fluid" alt="">
                 </div>
               </div>
               <div class="col-xs-12 col-md-12 col-lg-12">             
                  <div class="dangkyEvent ">
                <router-link to="sinh-hoat-clb-ngoai-ngu-vi-cong-dong"> <div class="btn btn-danger">Tìm hiểu thêm</div></router-link>
-              </div></div>
+              </div>
+              </div>
             </div>
-
           </div>
-          <div class="tab-pane" id="date2" role="tabpanel">
-            <div class="row event1">
+          <div class="tab-pane active" id="date2" role="tabpanel" v-if="upcoming">
+            <div class="row event1" v-for="item in upcoming" :key="item.id">
               <div class="col-xs-12 col-md-3 col-lg-3">
-                <span class="date">04</span>
-                <span class="month">Tháng 7</span>
+                <span class="date">{{item.start_date}}</span>
+                <span class="month">Tháng {{item.start_month}}</span>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3>Sinh trắc vân tay và vai trò trong hướng nghiệp</h3>
+                  <h3>{{item.title}}</h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <span>9:AM - 11:AM </span>
+                  <span>{{item.start_hours}} - {{item.finish_hours}}</span>
                   <br>
                   <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                  <span>Số 619 Nguyễn Trãi, Thanh Xuân, Hà Nội</span>
+                  <span>{{item.address}}</span>
                   <hr>
-                  <p>Hiện là giám đốc học viện đào tạo kỹ năng NLP, cùng Mr Tuyên khám phá sinh trắc vân tay và vai trò trong định hướng công việc trong tương lai.</p>
+                  <p>{{item.description}}</p>
                 </div>
               </div>
               <div class="col-xs-12 col-md-3 col-lg-3">
                 <div class="eventImg">
-                  <img src="../assets/images/tintuc/blog6.jpg" class="img-fluid" alt="">
-                </div>
-              </div>
-                            <div class="col-xs-12 col-md-12 col-lg-12">             
-                 <div class="dangkyEvent ">
-                <div class="btn btn-danger">Tìm hiểu thêm</div>
-              </div></div>
-            </div>
-            <div class="row event1">
-              <div class="col-xs-12 col-md-3 col-lg-3">
-                <span class="date">06</span>
-                <span class="month">Tháng 7</span>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-6">
-                <div id="eventContent">
-                  <h3>Chia sẻ chiến lược luyện thi IELTS</h3>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <span>8:AM - 5:PM </span>
-                  <br>
-                     <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                  <span>Số 619 Nguyễn Trãi, Thanh Xuân, Hà Nội</span>
-                  <hr>
-                     <p>Muốn đạt điểm cao ở một chương trình thi quốc tế như IELTS bạn cần một cái đầu lạnh và chiến thuật hợp lý. IELTS là một kỳ thi để kiểm tra mức độ thành thạo tiếng Anh của người sử dụng tiếng Anh như ngôn ngữ thứ hai. Những thí sinh đăng ký thi IELTS muốn đạt điểm cao cần phải lên kế hoạch luyện thi thật chăm chỉ và chi tiết...</p>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-3 col-lg-3">
-                <div class="eventImg">
-                  <img src="../assets/images/tintuc/blog33.jpg" class="img-fluid" alt="">
+                  <img :src="imagePath(item.background_image)" class="img-fluid" alt="">
                 </div>
               </div>
                             <div class="col-xs-12 col-md-12 col-lg-12">             
@@ -110,77 +83,29 @@
               </div></div>
             </div>
           </div>
-          <div class="tab-pane " id="date3" role="tabpanel">
-            <div class="row event1">
+          <div class="tab-pane " id="date3" role="tabpanel" v-if="expired">
+            <div class="row event1" v-for="item in expired" :key="item.id">
               <div class="col-xs-12 col-md-3 col-lg-3">
-                <span class="date">06</span>
-                <span class="month">Tháng 6</span>
+                <span class="date">{{item.start_date}}</span>
+                <span class="month">Tháng {{item.start_month}}</span>
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3>Chia sẻ kinh nghiệm viết CV và nộp hồ sơ xin việc</h3>
+                  <h3>{{item.title}}</h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <span>8:AM - 5:PM </span>
+                  <span>{{item.start_hours}} - {{item.finish_hours}} </span>
                   <br>
                   <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                  <span>Số 619 Nguyễn Trãi, Thanh Xuân, Hà Nội</span>
+                  <span>{{item.address}}</span>
                   <hr>
-                  <p>Anh Bảo hiện đang là trưởng phòng nhân sự của Vingroup, hàng năm Vingroup đều có đợt tuyển dụng nhân lực, vậy tiêu chí nào...</p>
+                  <p>{{item.description}}</p>
                 </div>
               </div>
               <div class="col-xs-12 col-md-3 col-lg-3">
                 <div class="eventImg">
-                  <img src="../assets/images/tintuc/blog2.jpg" class="img-fluid" alt="">
+                  <img :src="imagePath(item.background_image)" class="img-fluid" alt="">
                 </div>
-              </div>
-              
-            </div>
-            <div class="row event1">
-              <div class="col-xs-12 col-md-3 col-lg-3">
-                <span class="date">01</span>
-                <span class="month">Tháng 6</span>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-6">
-                <div id="eventContent">
-                  <h3>Chia sẻ chiến lược luyện thi IELTS</h3>
-                            <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    <span>1:PM - 5:PM </span>
-                  <br>
-                  <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                     <span>Số 619 Nguyễn Trãi, Thanh Xuân, Hà Nội</span>
-                  <hr>
-                  <p>Thầy Tùng hiện là Giảng viên khoa Anh ĐH Hà Nội. Cùng thầy Tùng giải đáp những thắc mắc của nhiều bạn hội viên nhé....</p>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-3 col-lg-3">
-                <div class="eventImg">
-                  <img src="../assets/images/tintuc/blog4.jpg" class="img-fluid" alt="">
-        
-                </div>
-              </div>
-            </div>
-            <div class="row event1">
-              <div class="col-xs-12 col-md-3 col-lg-3">
-                <span class="date">04</span>
-                <span class="month">Tháng 5</span>
-              </div>
-              <div class="col-xs-12 col-md-6 col-lg-6">
-                <div id="eventContent">
-                  <h3>Chia sẻ kinh nghiệm săn học bổng du học Úc</h3>
-                  <i class="fa fa-clock-o" aria-hidden="true"></i>
-                  <span>2:PM - 5:PM </span>
-                  <br>
-                  <i class="fa fa-address-book-o" aria-hidden="true"></i>
-                  <span>Số 619 Nguyễn Trãi, Thanh Xuân, Hà Nội</span>
-                  <hr>
-                  <p>Bạn thương hiện là Du học sinh năm 4 ĐH Queensland Australia. Hãy tham khảo những đóng góp quý giá của bạn nhé.</p>
-                </div>
-              </div>
-              <div class="col-xs-12 col-md-3 col-lg-3">
-                <div class="eventImg">
-                  <img src="../assets/images/tintuc/blog44.jpg" class="img-fluid" alt="">
-                </div>
-              </div>
+              </div>            
             </div>
           </div>
         </div>
@@ -188,10 +113,58 @@
     </div>
   </div>
 </template>
-
+<script>
+import axios from 'axios'
+import moment from 'moment'
+export default {
+  data () {
+    return {
+      happening: [],
+      upcoming: [],
+      expired: []
+    }
+  },
+  created () {
+    axios.get(`http://localhost:3000/sukien`)
+      .then(res => {
+        console.log(res.data)
+        res.data.expired.map(item => {
+          item.start_date = moment(item.starttime).format('DD')
+          item.start_month = moment(item.starttime).format('MM')
+          item.start_hours = moment(item.starttime).format('LT')
+          item.finish_hours = moment(item.finishtime).format('LT')
+        })
+        res.data.happening.map(item => {
+          item.start_date = moment(item.starttime).format('DD')
+          item.start_month = moment(item.starttime).format('MM')
+          item.start_hours = moment(item.starttime).format('LT')
+          item.finish_hours = moment(item.finishtime).format('LT')
+        })
+        res.data.upcoming.map(item => {
+          item.start_date = moment(item.starttime).format('DD')
+          item.start_month = moment(item.starttime).format('MM')
+          item.start_hours = moment(item.starttime).format('LT')
+          item.finish_hours = moment(item.finishtime).format('LT')
+        })
+        this.happening = res.data.happening
+        this.upcoming = res.data.upcoming
+        this.expired = res.data.expired
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  },
+  methods: {
+    imagePath: function (img) {
+      return require('../assets/images/event/' + img)
+    }
+  }
+}
+</script>
 <style>
 #sukien {
   margin-top: 150px;
+  margin-bottom: 20px;
 }
 
 .dangkyEvent {

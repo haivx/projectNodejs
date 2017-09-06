@@ -256,6 +256,7 @@ export default {
     // retrieve data from server
     axios.get(`http://localhost:3000/lich-khai-giang`)
       .then(res => {
+        console.log(res)
         res.data.event_sidebar.map(item => {
           item.start_time = moment(item.starttime).format('DD/MM/YYYY')
           item.start_hour = moment(item.starttime).format('LTS')

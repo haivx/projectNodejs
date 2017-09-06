@@ -5,8 +5,8 @@
       <div class="row">
         <div class="col-xs-12 col-md-12 col-lg-12">
           <div class="footPage">
-            <div class="imgPage">
-              <img src="../assets/images/homepage/logo-offical.png" alt="">
+            <div class="imgPage" v-if="logo[0]">
+              <img :src="imagePath(logo[0].logo)" alt="ngoai-ngu-vi-cong-dong">
             </div>
             <div class="titlePage">
               <p>Câu lạc bộ ngoại ngữ vì cộng đồng là một tổ chức phi lợi nhuận hoạt động trong lĩnh vực phát triển cộng đồng</p>
@@ -61,7 +61,12 @@
 <script>
 
 export default {
-
+  props: ['logo'],
+  methods: {
+    imagePath: (img) => {
+      return require('../assets/images/homepage/' + img)
+    }
+  }
 }
 </script>
 
@@ -74,7 +79,8 @@ export default {
 
 .imgPage img {
   background: white;
-  margin: 5px auto
+  margin: 5px auto;
+  max-width: 150px;
 }
 
 .titlePage {

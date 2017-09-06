@@ -6,7 +6,7 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<a class="navbar-brand logo" href="#">
-					<router-link to="/"><img v-if="logo[0]" :src="imagePath(logo[0].logo)" alt=""></router-link>
+					<router-link to="/"><img v-if="logo[0]" :src="imagePath(logo[0].logo)" alt="ngoai-ngu-vi-cong-dong"></router-link>
 				</a>
 				<div class="collapse navbar-collapse menuCollapse" id="navbarNav">
 					<ul class="navbar-nav">
@@ -60,7 +60,6 @@ export default {
   props: ['logo'],
   data () {
     return {
-
     }
   },
   methods: {

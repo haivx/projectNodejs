@@ -3,7 +3,7 @@
     <!-- Modal -->
     <div class="modal fade" id="myModalChinese" tabindex="-1" role="dialog" aria-labelledby="ChineseModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
+        <div class="modal-content form-modal">
           <div class="modal-header">
             <h5 class="modal-title" id="ChineseModalLabel">Đăng ký lớp tiếng Trung</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -65,10 +65,12 @@ export default {
 
 <style lang="css">
 .modal-content .modal-header h5 {
-	color: white;
+	color: green;
 	font-size: 30px;
 }
-
+.form-modal {
+  background: green
+}
 #register_tienganh .form-control {
 	margin: 15px auto;
 	border: 1px solid #2c5ba2;
@@ -76,7 +78,7 @@ export default {
 	font-size: 16px;
 }
 #register_tienganh p{
-	color: white;
+	color: green;
 }
 #register_tienganh .formlist {
 	margin-left: 0;

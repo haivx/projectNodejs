@@ -10,5 +10,14 @@ class events {
   event_sidebar (detail) {
     return this.db.any("SELECT * FROM event LIMIT 2 OFFSET 0 ",detail)
   }
+  happening_event (happening) {
+    return this.db.any("SELECT * FROM event WHERE event.starttime = CURRENT_DATE ORDER BY event.starttime DESC")
+  }
+  upcoming_event (upcoming) {
+    return this.db.any("SELECT * FROM event WHERE event.starttime > CURRENT_DATE ORDER BY event.starttime DESC")
+  }
+  expired_event (expired) {
+    return this.db.any("SELECT * From event WHERE event.starttime < CURRENT_DATE ORDER BY event.starttime DESC")
+  }
 }
 module.exports = new events(db);
