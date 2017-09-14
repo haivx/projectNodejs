@@ -21,5 +21,5 @@ const options = {
 };
 const pgp = require('pg-promise')(options);
 
-module.exports.db = pgp(cn);
+module.exports = pgp(cn);
 module.exports.config = config;

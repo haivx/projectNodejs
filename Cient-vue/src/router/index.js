@@ -5,14 +5,14 @@ import lienhe from '@/components/lienhe'
 import gioithieu from '@/components/gioithieu'
 import loptienganh from '@/components/loptienganh'
 import lichkhaigiang from '@/components/lichkhaigiang'
-import eventDetail from '@/components/event_detail'
+import eventDetail from '@/components/eventDetail'
 import event from '@/components/event'
 import dashboard from '@/components/dashboard'
 import dynamicRoute from '@/components/dynamicRoute'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
   routes: [
     {
       path: '/',
@@ -41,7 +41,7 @@ export default new Router({
     },
     {
       path: '/event-detail',
-      name: 'event_detail',
+      name: 'eventDetail',
       component: eventDetail
     },
     {

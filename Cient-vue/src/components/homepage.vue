@@ -435,7 +435,6 @@ export default {
       this.general = res.data.general
       this.course = res.data.course
       this.newspaper = res.data.newspaper
-      // console.log(this.course)
     })
       .catch(error => {
         console.error(error)

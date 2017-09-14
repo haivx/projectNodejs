@@ -87,6 +87,7 @@
                         </table>
 
                         <h3>ĐĂNG KÝ</h3>
+                        <button>{{alo}}</button>
                         <label for="nameEvent">Họ tên của bạn</label>
                         <input type="text" name="nameEvent" id="nameEvent" >
                         <label for="telEvent">Điện thoại</label>
@@ -110,23 +111,11 @@
     </div>
 </template>
 <script>
-import axios from 'axios'
 export default {
-  watch: {
-    '$route': 'fetchData'
-  },
-  created () {
-    this.fetchData()
-  },
-  methods: {
-    fetchData () {
-      axios.get(`http://localhost:3000/event-detail/` + this.$route.params.id + '/')
-        .then(res => {
-          console.log(res)
-        })
-        .catch(error => {
-          console.log(error)
-        })
+  name: 'event_detail',
+  data () {
+    return {
+      alo: 'Alo'
     }
   }
 }
@@ -220,6 +209,3 @@ export default {
     font-weight: bold
 }
 </style>
-<script>
-
-</script>

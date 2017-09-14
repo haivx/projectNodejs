@@ -19,5 +19,8 @@ class events {
   expired_event (expired) {
     return this.db.any("SELECT * From event WHERE event.starttime < CURRENT_DATE ORDER BY event.starttime DESC")
   }
+  findEventById (id) {
+    return this.db.one("SELECT * FROM event WHERE event.id = $1",id)
+  }
 }
 module.exports = new events(db);

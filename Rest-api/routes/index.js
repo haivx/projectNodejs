@@ -1,3 +1,4 @@
+
 const schedule = require('../models/schedule');
 const events = require('../models/events');
 const course = require('../models/course');
@@ -21,10 +22,10 @@ module.exports = (express) => {
     saveUninitialized: false,
     resave: false
   }));
-  
+
   router.use(passport.initialize());
   router.use(passport.session());
-  
+
   router.get('/',(req,res) =>{
     db.task(t => {
       return t.batch([
@@ -71,13 +72,13 @@ module.exports = (express) => {
               // console.log(data.id);
               let newId = data.id + 1;
              //Mặc định giá trị role_id là 3
-              const role_id = 3;
+              // const role_id = 3;
               // console.log(newId);
                 //Hash the password
               const hash =  User.hashPassword(data.password)
                 .then(function(hash) {
                   // console.log('hash',hash);
-                  User.insertUser(newId,username, hash, telephone_number, fullname, email,role_id)
+                  User.insertUser(newId,username, hash, telephone_number, fullname, email,role_id = 3)
                   .then((data) => {
                     res.json({msg:'Đăng ký thành công, bạn có thể đăng nhập'})
                   })
@@ -94,9 +95,7 @@ module.exports = (express) => {
         .catch( error => {
           console.log(error);
         })
-        
   });
-
   //Authentication
   router.post('/login',
   passport.authenticate('local',{
@@ -122,6 +121,7 @@ module.exports = (express) => {
         ])
       })
       .then( data => {
+
         res.json({
           happening: data[0],
           upcoming:data[1],
@@ -131,8 +131,9 @@ module.exports = (express) => {
   })
 
 //Page Event detail
-  router.get('/event-detail/', (req,res) => {
-    return  events.expired_event()
+  router.get('/event-detail/:id', (req,res) => {
+    let id = req.params.id
+    events.findEventById(id)
        .then( data => {
          res.json(data)
        })
@@ -140,7 +141,7 @@ module.exports = (express) => {
          console.log(error);
        })
    })
- 
+
 //Page lịch khai giảng
   router.get('/lich-khai-giang', (req,res) => {
     db.task( t => {
