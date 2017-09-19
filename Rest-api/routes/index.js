@@ -5,6 +5,7 @@ const course = require('../models/course');
 const general = require('../models/general');
 const newspaper = require('../models/newspaper');
 const note = require('../models/note');
+const ticket = require('../models/ticket');
 const {db, } = require('../pgp');
 const User = require('../models/users');
 const flash = require('connect-flash');
@@ -15,7 +16,7 @@ require('../passport/passport')(passport);
 module.exports = (express) => {
   router = express.Router();
   router.use(flash());
-
+  
   router.use(session({
     cookie: { maxAge: 60000 },
     secret: 'keysecret',
@@ -55,12 +56,12 @@ module.exports = (express) => {
 
   //Đăng ký đăng nhập
   router.post('/register', (req,res) => {
+    console.log('req.body', req.body);
     let username = req.body.data.username;
     let email = req.body.data.email
     let fullname = req.body.data.fullName
     let password = req.body.data.password
     let telephone_number = req.body.data.tel
-    // console.log(telephone_number);
       User.checkUser(username)
         .then( (data) => {
           // console.log(data);
@@ -69,15 +70,15 @@ module.exports = (express) => {
           } else {
             User.checkId()
             .then((data) => {
-              // console.log(data.id);
+              console.log(data.id);
               let newId = data.id + 1;
              //Mặc định giá trị role_id là 3
               // const role_id = 3;
-              // console.log(newId);
+              console.log('newId', newId);
                 //Hash the password
               const hash =  User.hashPassword(data.password)
                 .then(function(hash) {
-                  // console.log('hash',hash);
+                  console.log('hash',hash);
                   User.insertUser(newId,username, hash, telephone_number, fullname, email,role_id = 3)
                   .then((data) => {
                     res.json({msg:'Đăng ký thành công, bạn có thể đăng nhập'})
@@ -131,11 +132,26 @@ module.exports = (express) => {
   })
 
 //Page Event detail
-  router.get('/event-detail/:id', (req,res) => {
-    let id = req.params.id
-    events.findEventById(id)
+  router.get('/event/:eventDetail', (req,res) => {
+    let eventDetail = req.params.eventDetail
+    db.task( t => {
+      return t.batch([
+        //Get data Event
+        events.findEventByTitle(eventDetail),
+
+        // Get data ticket
+        events.countTotalTicket(eventDetail),
+
+        // Get data upcoming event
+        events.upcoming_event_one()
+      ])
+    })
        .then( data => {
-         res.json(data)
+         res.json({
+           events: data[0],
+           ticket: data[1],
+           upcomingOne: data[2]
+         })
        })
        .catch (error => {
          console.log(error);
@@ -177,8 +193,34 @@ module.exports = (express) => {
       })
     })
   })
-
-
+  //Đăng ký Event
+router.post('/event/registerEvent', (req,res) =>{
+  let nameEvent = req.body.data.nameEvent
+  let telEvent = req.body.data.telEvent
+  let emailEvent =  req.body.data.emailEvent
+  let ticketCount =  req.body.data.ticketCount
+  let eventId =  req.body.data.eventId
+  ticket.check_ticket_by_phonenumber(telEvent)
+    .then( data => {
+      console.log('check_ticket_by_phonenumber', data);
+      if(data.length > 0) {
+        res.json({msg: "Số điện thoại đã được đăng ký"})
+      } else {
+        ticket.insertPerson(nameEvent, telEvent, emailEvent, ticketCount, eventId)
+        .then( (data) => {
+          console.log(res)
+          res.json({msg: "Đăng ký thành công"})
+        })
+        .catch (error => {
+          console.log(error);
+          res.json({msg: "Đăng ký không thành công"});
+        })
+      }
+    })
+    .catch ( error => {
+      console.log(error)
+    })
+})
 
 
   return router;

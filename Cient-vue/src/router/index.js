@@ -8,7 +8,6 @@ import lichkhaigiang from '@/components/lichkhaigiang'
 import eventDetail from '@/components/eventDetail'
 import event from '@/components/event'
 import dashboard from '@/components/dashboard'
-import dynamicRoute from '@/components/dynamicRoute'
 Vue.use(Router)
 
 export default new Router({
@@ -40,24 +39,27 @@ export default new Router({
       component: lichkhaigiang
     },
     {
-      path: '/event-detail',
-      name: 'eventDetail',
-      component: eventDetail
-    },
-    {
-      path: '/event-detail/:id',
-      name: 'dynamicRoute',
-      component: dynamicRoute
-    },
-    {
       path: '/event',
       name: 'event',
       component: event
     },
     {
+      path: '/event/:eventDetail',
+      name: 'eventDetail',
+      component: eventDetail
+    },
+    {
       path: '/dashboard',
       name: 'dashboard',
       component: dashboard
+    },
+    {
+      path: '/dashboard/account',
+      name: 'Account',
+      component: dashboard
     }
-  ]
+  ],
+  scrollBehavior: (to, from, savedPosition) => {
+    return {x: 0, y: 0}
+  }
 })

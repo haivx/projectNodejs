@@ -21,11 +21,11 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-xs-12 col-md-12 col-lg-12">
-							<!-- Lịch khai giảng lớp tiếng Anh-->
-							<div class="planEng">
-								<h3>Lớp tiếng Anh</h3>
-								<table class="table table-hover table-bordered table-striped table-responsive " >
+						<div class="col-xs-12 col-md-12 col-lg-12" v-for="(subschedule, index1) in schedule" :key="subschedule.id" >
+							<!-- Lịch khai giảng-->
+							<div class="planEng" >
+								<h3>{{subschedule[0].title}}</h3>
+								<table class="table table-hover table-bordered table-striped table-responsive" >
 									<thead >
 										<tr>
 											<th>#</th>
@@ -36,118 +36,22 @@
 											<th>Đăng ký</th>
 										</tr>
 									</thead>
-									<tbody v-for="(item,index) in eng_schedule" :key="item.id">
-										<tr>
+									 <tbody v-for="(items,index) in subschedule" :key="items.id">
+										<tr >
 											<th scope="row">{{index + 1}}</th>
-											<td>{{item.class_level}}</td>
-											<td>{{item.course_id}} {{item.class_id}}</td>	
-											<td>{{item.schedule_class}}</td>
-											<td>{{item.open_date}}</td>
+											<td>{{items.class_level}}</td>
+											<td>{{items.course_id}} {{items.class_id}}</td>	
+											<td>{{items.schedule_class}}</td>
+											<td>{{items.open_date}}</td>
 											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalEnglish">Đăng ký</button>
+												<button class="btn-danger" data-toggle="modal" @click="getPopup(index1)" data-target="#registerModal">Đăng ký</button>
 											</td>
-										</tr>
+										</tr> 
 									</tbody>
 								</table>
 							</div>
-							<!-- Hết Lịch khai giảng lớp tiếng Anh-->
+							<!-- Hết Lịch khai giảng-->
 						</div>
-						<div class="col-xs-12 col-md-12 col-lg-12">
-							<!-- Lịch khai giảng lớp tiếng Trung-->
-							<div class="planChina" v-if="chinese_schedule">
-								<h3>Lớp tiếng Trung</h3>
-
-								<table class="table table-hover table-bordered table-striped table-responsive ">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Trình độ</th>
-											<th>Lớp</th>
-											<th>Lịch học</th>
-											<th>Ngày nhập học</th>
-											<th>Đăng ký</th>
-										</tr>
-									</thead>
-									<tbody  v-for="(item,index) in chinese_schedule" :key="item.id">
-										<tr>
-											<th scope="row">{{index + 1}}</th>
-											<td>{{item.class_level}}</td>
-											<td>{{item.course_id}} {{item.class_id}}</td>
-											<td>{{item.schedule_class}}</td>
-											<td>{{item.open_date}}</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalChinese">Đăng ký</button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<!-- Hết Lịch khai giảng lớp tiếng Trung-->
-						</div>
-						<div class="col-xs-12 col-md-12 col-lg-12">
-							<!-- Lịch khai giảng lớp tiếng Nhật-->
-							<div class="planJapan" v-if="japanse_schedule">
-								<h3>Lớp tiếng Nhật</h3>
-
-								<table class="table table-hover table-bordered table-striped table-responsive ">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Trình độ</th>
-											<th>Lớp</th>
-											<th>Lịch học</th>
-											<th>Ngày nhập học</th>
-											<th>Đăng ký</th>
-										</tr>
-									</thead>
-									<tbody  v-for="(item,index) in japanse_schedule" :key="item.id">
-										<tr>
-											<th scope="row">{{index + 1}}</th>
-											<td>{{item.class_level}}</td>
-											<td>{{item.course_id}} {{item.class_id}}</td>
-											<td>{{item.schedule_class}}</td>
-											<td>{{item.open_date}}</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModalJapanese">Đăng ký</button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<!-- Hết Lịch khai giảng lớp tiếng Nhật-->
-						</div>
-						<div class="col-xs-12 col-md-12 col-lg-12">
-							<!-- Lịch khai giảng lớp tiếng Hàn-->
-							<div class="planKorea" v-if="korean_schedule">
-								<h3>Lớp tiếng Hàn</h3>
-								<table class="table table-hover table-bordered table-striped table-responsive ">
-									<thead>
-										<tr>
-											<th>#</th>
-											<th>Trình độ</th>
-											<th>Lớp</th>
-											<th>Lịch học</th>
-											<th>Ngày nhập học</th>
-											<th>Đăng ký</th>
-										</tr>
-									</thead>
-									<tbody  v-for="(item,index) in korean_schedule" :key="item.id">
-										<tr>
-											<th scope="row">{{index + 1}}</th>
-											<td>{{item.class_level}}</td>
-											<td>{{item.course_id}} {{item.class_id}}</td>
-											<td>{{item.schedule_class}}</td>
-											<td>{{item.open_date}}</td>
-											<td>
-												<button class="btn-danger" data-toggle="modal" data-target="#myModal">Đăng ký</button>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-							<!-- Hết Lịch khai giảng lớp tiếng Hàn-->
-						</div>
-
 					</div>
 					<div class="row">
 						<!--Title Ưu đãi-->
@@ -194,7 +98,7 @@
 											<h5>{{ items.speaker }}</h5>
 											<span style="background: #ff6500;color:white;padding: 5px;display:block;"> {{ items.start_time }}</span>
 											<a href="">
-												<p> {{ items.description }}</p>
+												<p v-if="items.description" v-html="$options.filters.truncate(items.description,100)"> </p>
 											</a>
 										</div>
 									</div>
@@ -207,19 +111,13 @@
 		</div>
 
 		<!--Popup register_form -->
-		<registerEnglish :schedule="eng_schedule"></registerEnglish>
-		<registerJapanese :schedule="japanse_schedule"></registerJapanese>
-		<registerChinese :schedule="chinese_schedule"></registerChinese>
-		<registerKorean :schedule="korean_schedule"></registerKorean>
+		<registerModal :schedule="scheduleForm"></registerModal>
 		<!--General register_form-->
 		<registerform></registerform>
 	</div><!--ĐÓNG THẺ VUE- DON'T REMOVE-->
 </template>
 <script>
-import registerEnglish from '../components/register_english.vue'
-import registerJapanese from '../components/register_japanese.vue'
-import registerChinese from '../components/register_chinese.vue'
-import registerKorean from '../components/register_korean.vue'
+import registerModal from '../components/registerModal.vue'
 import registerform from '../components/registerform.vue'
 import axios from 'axios'
 import moment from 'moment'
@@ -227,22 +125,21 @@ export default {
   name: 'lichkhaigiang',
   components: {
     registerform,
-    registerEnglish,
-    registerJapanese,
-    registerChinese,
-    registerKorean
+    registerModal
   },
   data () {
     return {
-      eng_schedule: [],
-      chinese_schedule: [],
-      japanse_schedule: [],
-      korean_schedule: [],
       note: [],
-      events: []
+      events: [],
+      schedule: [],
+      scheduleForm: ''
     }
   },
   methods: {
+    getPopup (index1) {
+      let scheduleForm = this.schedule[index1]
+      this.scheduleForm = scheduleForm
+    },
     Register: function () {
       window.$('html, body').animate({
         scrollTop: window.$('#register_hocthumienphi').offset().top - 250
@@ -257,7 +154,7 @@ export default {
     // retrieve data from server
     axios.get(`http://localhost:3000/lich-khai-giang`)
       .then(res => {
-        console.log(res)
+        console.log('res', res)
         res.data.event_sidebar.map(item => {
           item.start_time = moment(item.starttime).format('DD/MM/YYYY')
           item.start_hour = moment(item.starttime).format('LTS')
@@ -280,13 +177,26 @@ export default {
         this.chinese_schedule = res.data.chinese_schedule
         this.japanse_schedule = res.data.japanse_schedule
         this.korean_schedule = res.data.korean_schedule
+        let schedule = [
+          this.eng_schedule,
+          this.chinese_schedule,
+          this.japanse_schedule,
+          this.korean_schedule
+        ]
+        this.schedule = schedule
+        console.log('schedule', this.schedule)
         this.note = res.data.note
         this.events = res.data.event_sidebar
-        // console.log(this.events)
+        // console.log('res.data.eng_schedule', res.data.eng_schedule)
       })
       .catch(error => {
         console.error(error)
       })
+  },
+  filters: {
+    truncate: function (string, value) {
+      return string.substring(0, value) + '...'
+    }
   }
 }
 </script>
@@ -350,7 +260,7 @@ table tbody>tr>td .btn-danger:hover {
 }
 .planEng h3 {
 	color: #ff6500;
-	font-size: 30px;
+	font-size: 22px;
 	font-weight: bold
 }
 

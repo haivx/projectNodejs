@@ -21,5 +21,8 @@ const options = {
 };
 const pgp = require('pg-promise')(options);
 
-module.exports = pgp(cn);
+//enable this row when insert data Or return value when get data in file *.js 
+// module.exports = pgp(cn);
+
+module.exports.db = pgp(cn);
 module.exports.config = config;

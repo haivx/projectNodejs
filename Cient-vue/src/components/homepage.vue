@@ -121,80 +121,80 @@
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses" v-if="course[11]">
+          <div class="courses" v-if="course[1]">
             <a href="#">
               <div class="featured_image_courses" >
                 <div class="icon">
                   <img :src="imagePath(general[0].logo)" alt="">
                 </div>
-                <img :src="imagePathClass(course[11].picture)" alt="" class="img-fluid">
+                <img :src="imagePathClass(course[1].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">{{ course[11].title }}</a>
+              <a href="">{{ course[1].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses" v-if="course[9]">
+          <div class="courses" v-if="course[2]">
             <router-link to="lop-tieng-anh-0-dong">
               <a href="#">
                 <div class="featured_image_courses" >
                   <div class="icon">
                     <img :src="imagePath(general[0].logo)" alt="">
                   </div>
-                  <img :src="imagePathClass(course[6].picture)" alt="" class="img-fluid">
+                  <img :src="imagePathClass(course[2].picture)" alt="" class="img-fluid">
                 </div>
               </a>
             </router-link>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">{{ course[6].title }}</a>
+              <a href="">{{ course[2].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses" v-if="course[10]">
+          <div class="courses" v-if="course[3]">
             <a href="#">
               <div class="featured_image_courses">
                 <div class="icon">
                   <img :src="imagePath(general[0].logo)" alt="">
                 </div>
 
-                <img :src="imagePathClass(course[10].picture)" alt="" class="img-fluid">
+                <img :src="imagePathClass(course[3].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">{{ course[10].title }}</a>
+              <a href="">{{ course[3].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses" v-if="course[12]">
+          <div class="courses" v-if="course[0]">
             <a href="#">
               <div class="featured_image_courses">
                 <div class="icon">
                   <img :src="imagePath(general[0].logo)" alt="">
                 </div>
-                <img :src="imagePathClass(course[12].picture)" alt="" class="img-fluid">
+                <img :src="imagePathClass(course[0].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">{{ course[12].title }}</a>
+              <a href="">{{ course[0].title }}</a>
             </div>
           </div>
         </div>
         <div class="col-xs-12 col-md-6 col-lg-4">
-          <div class="courses" v-if="course[13]">
+          <div class="courses" v-if="course[4]">
             <a href="#">
               <div class="featured_image_courses">
                 <div class="icon">
                   <img :src="imagePath(general[0].logo)" alt="">
                 </div>
-                <img :src="imagePathClass(course[13].picture)" alt="" class="img-fluid">
+                <img :src="imagePathClass(course[4].picture)" alt="" class="img-fluid">
               </div>
             </a>
             <div class="col-xs-12 col-md-12 col-lg-12 course_text_content">
-              <a href="">{{ course[13].title }}</a>
+              <a href="">{{ course[4].title }}</a>
             </div>
           </div>
         </div>
@@ -434,6 +434,7 @@ export default {
       this.info = res.data.event
       this.general = res.data.general
       this.course = res.data.course
+      console.log(this.course)
       this.newspaper = res.data.newspaper
     })
       .catch(error => {
@@ -670,7 +671,7 @@ export default {
 }
 
 .course_text_content a {
-  font-size: 22px;
+  font-size: 18px;
   text-decoration: none;
   color: white;
 }

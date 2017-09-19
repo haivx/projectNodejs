@@ -32,7 +32,7 @@
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3>{{items.title}}</h3>
+                  <h3><a href=""><router-link :to="`event/${item.title}`">{{item.title}}</router-link></a></h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                   <span>{{items.start_hours}} - {{items.finish_hours}}</span>
                   <br>
@@ -62,7 +62,7 @@
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3><a href="">{{item.title}}</a></h3>
+                  <h3><a href=""> <router-link :to="`event/${item.title}`">{{item.title}}</router-link></a></h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                   <span>{{item.start_hours}} - {{item.finish_hours}}</span>
                   <br>
@@ -70,6 +70,7 @@
                   <span>{{item.address}}</span>
                   <hr>
                   <p>{{item.description}}</p>
+                  <router-link :to="`event/${item.title}`"><input type="button" class="btn btn-primary" value="Xem thêm"></router-link>
                 </div>
               </div>
               <div class="col-xs-12 col-md-3 col-lg-3">
@@ -87,7 +88,7 @@
               </div>
               <div class="col-xs-12 col-md-6 col-lg-6">
                 <div id="eventContent">
-                  <h3><a href="">{{item.title}}</a></h3>
+                  <h3><a href=""><router-link :to="`event/${item.title}`">{{item.title}}</router-link></a></h3>
                   <i class="fa fa-clock-o" aria-hidden="true"></i>
                   <span>{{item.start_hours}} - {{item.finish_hours}} </span>
                   <br>
@@ -125,7 +126,6 @@ export default {
     const BaseUrl = 'http://localhost:3000/'
     axios.get(`${BaseUrl}sukien`)
       .then(res => {
-        console.log(res.data)
         res.data.expired.map(item => {
           item.start_date = moment(item.starttime).format('DD')
           item.start_month = moment(item.starttime).format('MM')
@@ -201,7 +201,7 @@ export default {
 }
 
 #eventContent {
-  margin-top: 20px
+  margin-top: 20px;
 }
 #eventContent a:hover {
   text-decoration: none
@@ -214,7 +214,16 @@ export default {
 #eventContent h3 {
   font-weight: bold
 }
-
+#eventContent .btn {
+  background:#ff6500;
+  color: white; 
+  border: none;
+  margin-bottom: 5px;
+}
+#eventContent .btn:hover{
+  background: #f27422;
+  cursor: pointer;
+}
 .eventImg {
   margin: 20px auto;
 }

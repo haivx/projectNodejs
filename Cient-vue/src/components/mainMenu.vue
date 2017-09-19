@@ -14,13 +14,13 @@
 							<a class="nav-link" href="#"><router-link to="/">Trang chủ</router-link></a>
 						</li>
 						<li class="nav-item mainMenu-item" @click="hideMenu">
-							<a class="nav-link" href="#"><router-link to="gioi-thieu">Về chúng tôi</router-link></a>
+							<a class="nav-link" href="#"><router-link :to="`${root}/gioi-thieu`">Về chúng tôi</router-link></a>
 						</li>
 						<li class="nav-item mainMenu-item">
 							<a class="nav-link" href="javascript:void(0)">Các khóa học</a>
 							<ul class="submenu">
 								<li v-on:click="hideMenu">
-										<a href="#"><router-link to="lop-tieng-anh-0-dong">	Lớp tiếng Anh giao tiếp 0 đồng</router-link></a>
+										<a href="#"><router-link :to="`${root}/lop-tieng-anh-0-dong`">	Lớp tiếng Anh giao tiếp 0 đồng</router-link></a>
 								</li>
 								<li v-on:click="hideMenu"><a href="#"><router-link to="">Lớp tiếng Nhật 0 đồng</router-link></a></li>
 									<li v-on:click="hideMenu"><a href="#"><router-link to="">Lớp tiếng Hàn 0 đồng (Dự kiến)</router-link></a></li>
@@ -42,10 +42,10 @@
 							</ul>
 						</li>
 						<li class="nav-item mainMenu-item" @click="hideMenu">
-							<a class="nav-link" href="#"><router-link to="event">Tin tức - sự kiện</router-link></a>
+							<a class="nav-link" href="#"><router-link :to="`${root}/event`">Tin tức - sự kiện</router-link></a>
 						</li>
 						<li class="nav-item mainMenu-item" @click="hideMenu">
-							<a class="nav-link" href="#"> <router-link to="lien-he">Liên hệ</router-link></a>
+							<a class="nav-link" href="#"> <router-link :to="`${root}/lien-he`">Liên hệ</router-link></a>
 						</li>
 					</ul>
 				</div>
@@ -60,6 +60,7 @@ export default {
   props: ['logo'],
   data () {
     return {
+      root: ''
     }
   },
   methods: {

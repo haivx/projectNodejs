@@ -118,10 +118,11 @@ export default {
   },
   methods: {
     submit () {
-      // console.log(this.username)
+      console.log(this.username)
+      // $data la tat ca data duoc khai bao trong Vue js
       let data = this.$data
-      // delete data.confirmPassword
-      // delete data.msg
+      // console.log('data', data)
+      console.log('Day la this.$data', this.$data)
       // console.log(data)
       axios.post(`http://localhost:3000/register`, {
         data
