@@ -1,0 +1,18 @@
+[
+{
+"id":1,
+"fullname":"Pham Van Quyen",
+"phone_number":"0989838888",
+"email":"Quyenna@gmail.com",
+"count_ticket":"3",
+"event_id":"1"
+},
+{
+"id":2,
+"fullname":"Le Huynh Duc",
+"phone_number":"0902698888",
+"email":"Huynhduc@gmail.com",
+"count_ticket":"1",
+"event_id":"2"
+}
+]

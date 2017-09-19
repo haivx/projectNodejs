@@ -1,0 +1,29 @@
+[
+  {
+  "id": 1,
+  "username": "hoangnt",
+  "password": "123456",
+  "firstname": "Nguyen",
+  "lastname": "Hoang",
+  "email": "nguyentronghoang@gmail.com",
+  "role_id": 1
+  },
+  {
+  "id": 2,
+  "username": "nguyenquan",
+  "password": "654321",
+  "firstname": "Nguyen",
+  "lastname": "Quan",
+  "email": "nguyenquan@gmail.com",
+  "role_id": 3
+  },
+  {
+  "id": 3,
+  "username": "haivx",
+  "password": "123456",
+  "firstname": "Vo",
+  "lastname": "Hai",
+  "email": "haivx@gmail.com",
+  "role_id": 1
+  }
+]

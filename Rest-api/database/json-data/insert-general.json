@@ -1,0 +1,16 @@
+[
+{
+"id":1,
+"cover_id":1,
+"logo":"logo.png",
+"newspaper_id":1,
+"video_intro": "https://ngoainguvicongdong.com/#/lich-khai-giang"
+},
+{
+"id":2,
+"cover_id":2,
+"logo":"https://ngoainguvicongdong.com/#/lich-khai-giang",
+"newspaper_id":2,
+"video_intro": "https://ngoainguvicongdong.com/#/lich-khai-giang"
+}
+]

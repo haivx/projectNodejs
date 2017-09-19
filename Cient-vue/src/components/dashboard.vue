@@ -192,8 +192,6 @@ export default {
   animation: bounce-in .1s reverse;
 }
 
-
-
 @keyframes bounce-in {
   0% {
     transform: scale(0);
@@ -202,5 +200,4 @@ export default {
     transform: scale(1);
   }
 }
-
 </style>

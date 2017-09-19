@@ -1,0 +1,50 @@
+[
+  {
+"id":1,
+"course_id":"KOREAN_BASIC",
+"class_level":"Mới bắt đầu",
+"class_id": 601,
+"schedule_class": "Thứ 4 - CN: 19h15 - 21h15",
+"open_date":"2017-10-05 16:00:00"
+},
+{
+"id":2,
+"course_id":"ENG_ADVANCED",
+"class_level":"Cơ bản",
+"class_id": 48,
+"schedule_class": "Thứ 2 - Thứ 5: 17h15 - 19h15",
+"open_date":"2017-11-05 18:00:00"
+},
+{
+"id":3,
+"course_id":"KOREAN_ADVANCED",
+"class_level":"Nâng cao",
+"class_id":44,
+"schedule_class": "Thứ 5 - Chủ nhật: 9h15 - 11h15",
+"open_date":"2017-11-11 15:00:00"
+},
+{
+"id":4,
+"course_id":"ENG_BASIC",
+"class_level":"A1-Mới bắt đầu",
+"class_id":11,
+"schedule_class": "Thứ 4 + CN: 19h15 - 21h16",
+"open_date":"2017-10-01 15:00:00"
+},
+{
+"id":5,
+"course_id":"CHINESE_BASIC",
+"class_level":"A1-Mới bắt đầu",
+"class_id":11,
+"schedule_class": "Thứ 4 + CN: 19h15 - 21h16",
+"open_date":"2017-09-08 15:00:00"
+},
+{
+"id":6,
+"course_id":"JAPANESE_BASIC",
+"class_level":"A1-Mới bắt đầu",
+"class_id":11,
+"schedule_class": "Thứ 5 + CN: 20h15 - 21h16",
+"open_date":"2017-10-08 15:00:00"
+}
+]
