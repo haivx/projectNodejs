@@ -24,7 +24,7 @@
 ```js
 export default {
   computed: {
-    products () {
+    course () {
       return this.$store.state.course
     }
   },   
@@ -35,5 +35,14 @@ export default {
   }
 }
 ```
->> Khi component được created, nó sẽ kiểm tra state có rỗng không, nếu rỗng thì khởi chạy(`dispatch`)hàm courseDetail. Nếu `course` đã có thì nó sẽ lấy data từ hàm `getter` trong phương thức `computed`<br>
->>Khi `dispatch`, hàm courseDetail trong file `actions` sẽ thực hiện call Axios để trả về data. Trong `actions` sẽ commit một hàm để cập nhật data vào state
+  - Khi component được created, nó sẽ kiểm tra state có rỗng không, nếu rỗng thì khởi chạy(`dispatch`)hàm courseDetail trong `actions`. Nếu `course` đã có thì nó sẽ lấy data từ `state` hoặc data đã xử lý ở hàm `getter` trong phương thức `computed`<br>
+  - Khi `dispatch`, hàm courseDetail trong file `actions` sẽ gọi Axios. Đây là tác vụ bất đồng bộ, do đó nó thực hiện commit hàm `CourseMutations` trong `mutations` để xử lý kết quả.
+  - `CourseMutations` sẽ thực hiện việc cập nhật data vào state.
+  - Việc gọi data từ state bây giờ rất đơn giản:
+
+    ```js
+    course () {
+      return this.$store.state.course
+    }
+    ```
+    > Lưu ý tên function chính là kết quả/ data sẽ nhận và render ra browser.
