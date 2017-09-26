@@ -3,9 +3,13 @@ const app = express();
 const {db, } = require('./pgp');
 const bodyParser = require ('body-parser');
 const session = require('express-session');
+
+
+ // Them Authorization khi ket noi voi Vue-admin
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
   next();
 });
 
@@ -21,7 +25,11 @@ app.use('/public', express.static('public'))
 const index = require('./routes/index')(express);
 app.use('/',index)
 
+//make user ID available in template
 
+// app.use( (req,res) => {
+// 	res.locals.currentUser = req.session.userId;
+// })
 
 const port = 3000;
 app.listen(port, () => {

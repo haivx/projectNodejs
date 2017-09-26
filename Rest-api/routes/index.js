@@ -222,6 +222,14 @@ router.post('/event/registerEvent', (req,res) =>{
     })
 })
 
-
+router.get('/admin', async(req,res) => {
+  try{
+    const dashboard = await course.main_course();
+    res.json(dashboard)
+  }
+  catch(error) {
+    console.log(error);
+  }
+})
   return router;
 }

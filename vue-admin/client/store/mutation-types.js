@@ -1,0 +1,19 @@
+export const TOGGLE_DEVICE = 'TOGGLE_DEVICE'
+
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR'
+
+export const EXPAND_MENU = 'EXPAND_MENU'
+
+export const SWITCH_EFFECT = 'SWITCH_EFFECT'
+
+export const COURSE_DETAIL = 'COURSE_DETAIL'
+
+export const EVENT_DETAIL = 'EVENT_DETAIL'
+
+export const SCHEDULE_DETAIL = 'SCHEDULE_DETAIL'
+
+export const NEWSPAPER_DETAIL = 'NEWSPAPER_DETAIL'
+
+export const GENERAL = 'GENERAL'
+
+export const USERS = 'USERS'
