@@ -46,4 +46,4 @@ export default {
     }
     ```
     > Lưu ý tên function chính là kết quả/ data sẽ nhận và render ra browser.
-    ![Hình minh họa cho workflow](../vuex.png)
+    ![Hình minh họa cho workflow](https://github.com/haivx/projectNodejs/blob/master/vue-admin/vuex.png)
