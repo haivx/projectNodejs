@@ -5,7 +5,7 @@ import event from './event'
 import media from './media'
 import contact from './contact'
 import users from './users'
-import testimonial from './testimonial'
+import courses from './courses'
 import settings from './settings'
 // show: meta.label -> name
 // name: component name
@@ -36,7 +36,7 @@ const state = {
     media,
     contact,
     users,
-    testimonial,
+    courses,
     settings
   ]
 }

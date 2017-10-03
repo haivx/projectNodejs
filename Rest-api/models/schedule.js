@@ -9,5 +9,8 @@ class schedule {
       WHERE course.course_id = $1 OR course.course_id = $2
       ORDER BY schedule.open_date ASC`,[name1,name2])
   }
+  fullSchedule() {
+    return this.db.any(`SELECT * FROM schedule  ORDER BY schedule.open_date ASC`)
+  }
 }
 module.exports = new schedule(db);

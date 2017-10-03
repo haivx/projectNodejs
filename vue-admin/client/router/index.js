@@ -14,6 +14,16 @@ export default new Router({
       component: require('../views/Home')
     },
     {
+      name: 'Edit',
+      path: '/edit/:id',
+      component: require('../views/edit/event')
+    },
+    {
+      name: 'Error',
+      path: '/edit/*',
+      component: require('../views/edit/notFound')
+    },
+    {
       name: 'Login',
       path: '/login',
       component: require('../views/auth/Login')

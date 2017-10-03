@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>
-      This is all Media
+      THIS FEATURE WILL BE COMING SOON!!!
     </h1>
   </div>
 </template>

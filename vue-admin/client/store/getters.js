@@ -4,7 +4,8 @@ const device = state => state.app.device
 const sidebar = state => state.app.sidebar
 const effect = state => state.app.effect
 const menuitems = state => state.menu.items
-const courseDetail = state => state.course
+const eventDetail = state => state.events
+const editEvent = state => state.editEvent
 const componententry = state => {
   return state.menu.items.filter(c => c.meta && c.meta.label === 'Components')[0]
 }
@@ -17,5 +18,6 @@ export {
   effect,
   menuitems,
   componententry,
-  courseDetail
+  eventDetail,
+  editEvent
 }

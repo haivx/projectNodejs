@@ -1,8 +1,9 @@
 import {
   COURSE_DETAIL,
   EVENT_DETAIL,
+  EDIT_EVENT,
   SCHEDULE_DETAIL,
-  NEWSPAPER_DETAIL,
+  TICKET_DETAIL,
   GENERAL,
   USERS
 } from './mutation-types'
@@ -15,7 +16,12 @@ export const CourseMutations = {
 }
 export const EventMutations = {
   [EVENT_DETAIL] (state, payload) {
-    state.events.push(payload)
+    state.events = payload
+  }
+}
+export const editEventMutations = {
+  [EDIT_EVENT] (state, payload) {
+    state.editEvent = payload
   }
 }
 export const scheduleMutations = {
@@ -23,14 +29,14 @@ export const scheduleMutations = {
     state.schedule.push(payload)
   }
 }
-export const newspaperMutations = {
-  [NEWSPAPER_DETAIL] (state, payload) {
-    state.schedule.push(payload)
+export const ticketMutations = {
+  [TICKET_DETAIL] (state, payload) {
+    state.ticket.push(payload)
   }
 }
 export const generalMutations = {
   [GENERAL] (state, payload) {
-    state.schedule.push(payload)
+    state.general.push(payload)
   }
 }
 export const usersMutations = {

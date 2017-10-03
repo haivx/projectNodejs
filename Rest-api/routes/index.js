@@ -109,7 +109,7 @@ module.exports = (express) => {
   });
   //Login fail, return fail message
   router.get('/loginfailed', (req,res) => {
-    res.json({msg:'Login failed'})
+    res.json({msg:'login Failed'})
   });
 
 //Page Event
@@ -222,14 +222,5 @@ router.post('/event/registerEvent', (req,res) =>{
     })
 })
 
-router.get('/admin', async(req,res) => {
-  try{
-    const dashboard = await course.main_course();
-    res.json(dashboard)
-  }
-  catch(error) {
-    console.log(error);
-  }
-})
   return router;
 }

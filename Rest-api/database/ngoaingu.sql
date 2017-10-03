@@ -48,7 +48,7 @@ CREATE TABLE event(
     starttime  DATE NOT NULL,
     finishtime  DATE NOT NULL,
     address  VARCHAR(100) NOT NULL,
-    date_post DATE NOT NULL,
+    date_post DATE NOT NULL  default CURRENT_DATE,
     user_id INT NOT NULL,
     job VARCHAR(150) NOT NULL,
     price_ticket VARCHAR(100) NOT NULL, 

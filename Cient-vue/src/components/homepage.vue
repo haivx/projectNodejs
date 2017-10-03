@@ -458,6 +458,7 @@ export default {
       }, 1000)
     },
     imagePath: function (img) {
+      // return require(`${URL_BASE}/public/assets/images/homepage/class/` + img)
       return require('../assets/images/homepage/' + img)
     },
     imagePathClass: function (img) {
@@ -511,9 +512,6 @@ export default {
   transition: 0.3s;
   display: none;
 }
-
-
-
 
 /******
 	CSS CHO PHAN SLIDER

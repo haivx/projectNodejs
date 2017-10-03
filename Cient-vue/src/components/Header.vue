@@ -185,16 +185,26 @@ export default {
 </script>
 
 <style scoped>
-#form-dangky label {
-  color: green;
-}
 
+label {
+  color: white;
+  font-size: 1.2rem
+}
+span {
+  color:white
+}
 #form-dangky, #form-dangnhap {
-  text-align: center
+  text-align: center;
+  background:green;
 }
-
+.nav-tabs {
+   background:green; 
+}
 #form-dangky input, #form-dangnhap input {
   margin-bottom: 7px;
+}
+.nav-item a{
+  color:white;
 }
 
 .top {
@@ -204,11 +214,15 @@ export default {
   position: relative;
 }
 
-button {
+.btn-primary {
   cursor: pointer;
   margin-bottom: 7px;
+  background:  #FF6500;
+  border: none
 }
-
+.btn-primary:hover{
+  background:#e67830
+}
 #contactNum {
   color: white;
   font-size: 14px;
@@ -224,7 +238,7 @@ button {
   top: 7px;
   right: 15px;
   font-size: 14px;
-  font-weight: bold
+  font-weight: bold;
 }
 
 #loginBtn:link {
@@ -252,7 +266,7 @@ button {
 
 /******
       MEDIA QUERY
-      ******/
+        ******/
 
 @media screen and (max-width: 575px) {
   .displayBlock {
@@ -276,9 +290,6 @@ button {
   }
 }
 
-/*#logIn {
-  background:red
-}*/
 
 .modal-content .modal-header h5 {
   color: white;

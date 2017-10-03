@@ -23,6 +23,8 @@ app.use('/public', express.static('public'))
 
 // Configure Router
 const index = require('./routes/index')(express);
+const admin = require('./routes/admin')(express)
+app.use('/admin', admin)
 app.use('/',index)
 
 //make user ID available in template

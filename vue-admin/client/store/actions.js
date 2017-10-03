@@ -26,28 +26,33 @@ export const switchEffect = ({ commit }, effectItem) => {
 
 // EDIT BY HAI XUAN VO
 export const courseDetail = ({ commit }) => {
-  axios.get(`${API_BASE}`).then(response => {
+  axios.get(`${API_BASE}/courses`).then(response => {
     commit(types.COURSE_DETAIL, response.data)
   })
 }
 export const eventDetail = ({commit}) => {
   axios.get(`${API_BASE}/event`).then(response => {
-    commit(types.EVENT_DETAIL, response.data)
+    commit(types.EVENT_DETAIL, response.data.eventAdmin)
+  })
+}
+export const editEvent = ({commit}, title) => {
+  axios.get(`${API_BASE}/edit/${title}`).then(response => {
+    commit(types.EDIT_EVENT, response.data.editEventAdmin)
   })
 }
 export const scheduleDetail = ({commit}) => {
-  axios.get(`${API_BASE}/lich-khai-giang`).then(response => {
+  axios.get(`${API_BASE}/schedule`).then(response => {
     commit(types.SCHEDULE_DETAIL, response.data)
   })
 }
 
-export const newspaperDetail = ({commit}) => {
-  axios.get(`${API_BASE}/lich-khai-giang`).then(response => {
-    commit(types.NEWSPAPER_DETAIL, response.data)
+export const ticketDetail = ({commit}) => {
+  axios.get(`${API_BASE}/ticket`).then(response => {
+    commit(types.TICKET_DETAIL, response.data)
   })
 }
 export const general = ({commit}) => {
-  axios.get(`${API_BASE}/lich-khai-giang`).then(response => {
+  axios.get(`${API_BASE}/general`).then(response => {
     commit(types.GENERAL, response.data)
   })
 }

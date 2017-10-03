@@ -8,21 +8,19 @@ module.exports = (passport) => {
     function (username, password, done) {
       db.one('SELECT * FROM users WHERE username = $1', username)
         .then(data => {
-          console.log('data.password', data.password);
           if (data) {
-            console.log('password', password);
-
-          //Check if the password is correct 
-          let isValid = User.comparePasswords(password, data.password);
-          if(isValid) { 
-            console.log(data.username);
-            return done(null, data.username)
-          } else {
-            return done(null, false,{message: 'Unknown password'})
+                console.log('password', password);
+                console.log('data.password', data.password);
+              //Check if the password is correct 
+              const isValid = User.comparePasswords(password, data.password);
+              if(isValid) { 
+                console.log(data.username);
+                return done(null, data.username)
+              } else {
+                return done(null, false,{message: 'Unknown password'})
+              }
           }
-
-
-          } else {
+           else {
             return done(null, false, {message: 'Incorrect username.'})
           }
         })

@@ -10,6 +10,8 @@ export const COURSE_DETAIL = 'COURSE_DETAIL'
 
 export const EVENT_DETAIL = 'EVENT_DETAIL'
 
+export const EDIT_EVENT = 'EDIT_EVENT'
+
 export const SCHEDULE_DETAIL = 'SCHEDULE_DETAIL'
 
 export const NEWSPAPER_DETAIL = 'NEWSPAPER_DETAIL'
@@ -17,3 +19,5 @@ export const NEWSPAPER_DETAIL = 'NEWSPAPER_DETAIL'
 export const GENERAL = 'GENERAL'
 
 export const USERS = 'USERS'
+
+export const TICKET_DETAIL = 'TICKET_DETAIL'

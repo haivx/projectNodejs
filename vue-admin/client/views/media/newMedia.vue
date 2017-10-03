@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>
-      This is addNewmedia
+      THIS FEATURE WILL BE COMING SOON!!!
     </h1>
   </div>
 </template>

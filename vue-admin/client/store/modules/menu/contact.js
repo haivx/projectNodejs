@@ -17,11 +17,11 @@ export default {
       }
     },
     {
-      name: 'Thêm mới contact',
-      path: '/newContact',
-      component: lazyLoading('contact/newContact'),
+      name: 'Tất cả ticket',
+      path: '/allTicket',
+      component: lazyLoading('contact/allTicket'),
       meta: {
-        link: 'contact/newContact.vue'
+        link: 'contact/allTicket.vue'
       }
     }
   ]

@@ -4,7 +4,7 @@
 <p>
   <strong>Vue Admin Panel Framework</strong>,
   <a href="https://admin.vuebulma.com">Live Demo</a>
-  <p>Edit by Hai Xuan Vo</p>
+  <p>Edited by Hai Xuan Vo</p>
 </p>
 </div>
 
@@ -46,4 +46,5 @@ export default {
     }
     ```
     > Lưu ý tên function chính là kết quả/ data sẽ nhận và render ra browser.
+
     ![Hình minh họa cho workflow](https://github.com/haivx/projectNodejs/blob/master/vue-admin/vuex.png)
