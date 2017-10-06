@@ -20,9 +20,18 @@ module.exports = (express) => {
     }) 
   router.route('/event')
     .get( async (req,res,next) => {
-      const eventAdmin = await events.event_detail()
+      const eventAdmin = await events.event_list()
       res.json({eventAdmin})
     })
+  router.route('/event/delete/:item')
+    .delete( async (req,res,next) => {
+      let item = req.params.item
+      console.log('delete item so', item)
+      const removeEventAdmin = await events.delete_event_id(item)
+      res.json(removeEventAdmin)
+    })
+
+
   router.route('/edit/:id')
   .get( async (req,res,next) => {
     let title = req.params.id

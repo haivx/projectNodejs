@@ -21,3 +21,7 @@ export const GENERAL = 'GENERAL'
 export const USERS = 'USERS'
 
 export const TICKET_DETAIL = 'TICKET_DETAIL'
+
+export const UPDATE_EVENT = 'UPDATE_EVENT'
+
+export const REMOVE_EVENT_SUCCESS = 'REMOVE_EVENT_SUCCESS'

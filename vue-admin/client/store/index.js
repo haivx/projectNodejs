@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import pkg from 'package'
 import * as actions from './actions'
 import * as getters from './getters'
-import {CourseMutations, EventMutations, editEventMutations, scheduleMutations, ticketMutations, generalMutations} from './mutations'
+import {CourseMutations, EventMutations, editEventMutations, scheduleMutations, ticketMutations, generalMutations, updateEventContent, removeEventMutations} from './mutations'
 import app from './modules/app'
 import menu from './modules/menu'
 
@@ -27,7 +27,7 @@ const store = new Vuex.Store({
     user: [],
     general: []
   },
-  mutations: Object.assign({}, CourseMutations, EventMutations, editEventMutations, scheduleMutations, ticketMutations, generalMutations)
+  mutations: Object.assign({}, CourseMutations, EventMutations, editEventMutations, scheduleMutations, ticketMutations, generalMutations, updateEventContent, removeEventMutations)
 })
 
 export default store

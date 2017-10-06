@@ -5,7 +5,9 @@ import {
   SCHEDULE_DETAIL,
   TICKET_DETAIL,
   GENERAL,
-  USERS
+  USERS,
+  UPDATE_EVENT,
+  REMOVE_EVENT_SUCCESS
 } from './mutation-types'
 
 export const CourseMutations = {
@@ -42,5 +44,18 @@ export const generalMutations = {
 export const usersMutations = {
   [USERS] (state, payload) {
     state.user.push(payload)
+  }
+}
+export const updateEventContent = {
+  [UPDATE_EVENT] (state, payload) {
+    state.events = payload
+  }
+}
+
+export const removeEventMutations = {
+  [REMOVE_EVENT_SUCCESS] (state, payload) {
+    // console.log('state.events', state.events)
+    const index = state.events.findIndex(p => p.id === payload)
+    state.events.splice(index, 1)
   }
 }

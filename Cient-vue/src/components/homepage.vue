@@ -7,7 +7,8 @@
           <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item slider active slideFrames" v-if="general[0]">
-                <img class="d-block img-fluid" :src="imagePath(general[0].image_link)" alt="Second slide">
+                <img class="d-block img-fluid" :src="''+ URLBASE +'' + general[0].image_link + ''"   alt="Second slide">
+
               </div>
               <!-- <div class="carousel-item slider slideFrames">
                 <img class="d-block img-fluid" src="../assets/images/homepage/slider/1.jpeg" alt="Third slide">
@@ -125,7 +126,8 @@
             <a href="#">
               <div class="featured_image_courses" >
                 <div class="icon">
-                  <img :src="imagePath(general[0].logo)" alt="">
+                  <img :src="''+ URLBASE +'' + general[0].logo + ''" alt="">
+                  
                 </div>
                 <img :src="imagePathClass(course[1].picture)" alt="" class="img-fluid">
               </div>
@@ -404,6 +406,7 @@
   <!--Đóng Khung template Vue/ don't remove-->
 </template>
 <script>
+// const URL_BASE = 'http://localhost:3000/public/assets/images/homepage/'
 import registerform from '../components/registerform.vue'
 import iconscroll from '../components/iconscroll.vue'
 import axios from 'axios'
@@ -415,7 +418,8 @@ export default {
       general: [],
       info: [],
       course: [],
-      newspaper: []
+      newspaper: [],
+      URLBASE: 'http://localhost:3000/public/assets/images/homepage/'
     }
   },
   components: {
@@ -434,7 +438,7 @@ export default {
       this.info = res.data.event
       this.general = res.data.general
       this.course = res.data.course
-      console.log(this.course)
+      console.log(this.general)
       this.newspaper = res.data.newspaper
     })
       .catch(error => {
@@ -458,7 +462,6 @@ export default {
       }, 1000)
     },
     imagePath: function (img) {
-      // return require(`${URL_BASE}/public/assets/images/homepage/class/` + img)
       return require('../assets/images/homepage/' + img)
     },
     imagePathClass: function (img) {

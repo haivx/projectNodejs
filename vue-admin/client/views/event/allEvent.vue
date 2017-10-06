@@ -1,7 +1,8 @@
 <template>
-  <tabs animation="slide" :only-fade="false">
+
+  <tabs animation="slide" :only-fade="true">
     <tab-pane label="Tất cả">
-      
+
       <template>
         <div>
           <div class="tile is-ancestor">
@@ -34,7 +35,7 @@
                           <router-link :to="{path:`/edit/${item.title}`}"><i class="fa fa-pencil" aria-hidden="true"></i></router-link>
                         </td>
                         <td class="is-icon">
-                          <a href=""> <i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                           <i class="fa fa-trash-o" aria-hidden="true" @click="triggerTF(index = item.id)"></i>
                         </td>
                       </tr>
                     </tbody>
@@ -96,24 +97,56 @@
     </ul>
     </tab-pane>
     <tab-pane label="Sửa sự kiện">
-      <h1>
+      <h1 >
         This is edited page
       </h1>
+      <button @click="triggerTF">123</button>
     </tab-pane>
+  <div>
+    <modal :visible="activated" transition="roll" @close="close">
+      <div id="modal123">
+        <p> Are you sure to delete this event?</p>
+        <button class="button is-primary" @click="deleteEvent()">Delelte</button>
+      </div>
+    </modal>
+  </div>
   </tabs>
 </template>
 
 <script>
 import { Tabs, TabPane } from 'vue-bulma-tabs'
-
+import { Modal } from 'vue-bulma-modal'
 export default {
   components: {
     Tabs,
-    TabPane
+    TabPane,
+    Modal
+  },
+  data () {
+    return {
+      activated: false,
+      indexDelete: ''
+    }
+  },
+  methods: {
+    triggerTF (index) {
+      this.indexDelete = index
+      this.activated = true
+    },
+    close () {
+      this.$emit('close')
+      this.activated = false
+    },
+    deleteEvent () {
+      let payload = this.indexDelete
+      // console.log('Bo delete thang index nha', payload)
+      this.$store.dispatch('removeEvent', payload)
+      this.activated = false
+    }
   },
   computed: {
     events () {
-      console.log(this.$store.getters.eventDetail)
+      // console.log(this.$store.getters.eventDetail)
       return this.$store.getters.eventDetail
     }
   },
@@ -139,5 +172,18 @@ thead  > tr > th{
 }
 .table th {
     text-align: center
+}
+#modal123 {
+  background:white;
+  padding: 30px;
+}
+#modal123 p {
+  padding-bottom: 15px;
+  font-size: 20px;
+  font-weight: bold
+}
+i.fa-trash-o {
+  color: #00d1b2;
+  cursor: pointer;
 }
 </style>

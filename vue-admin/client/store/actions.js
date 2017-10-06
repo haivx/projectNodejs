@@ -61,3 +61,10 @@ export const user = ({commit}) => {
     commit(types.USERS, response.data)
   })
 }
+
+export const removeEvent = ({commit}, payload) => {
+  axios.delete(`${API_BASE}/event/delete/${payload}`, payload).then(response => {
+    console.log('response', response.data.id)
+    commit(types.REMOVE_EVENT_SUCCESS, response.data.id)
+  })
+}

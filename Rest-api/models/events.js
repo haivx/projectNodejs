@@ -7,6 +7,9 @@ class events {
   event_detail (detail) {
     return this.db.any("SELECT * FROM event LIMIT 4 ",detail)
   }
+  event_list() {
+    return this.db.any("SELECT * FROM event ")
+  }
   event_sidebar (detail) {
     return this.db.any("SELECT * FROM event LIMIT 2 OFFSET 0 ",detail)
   }
@@ -30,6 +33,9 @@ class events {
     return this.db.one(`select sum(count_ticket) from 
     (select * from ticket inner join event on (event.id = ticket.event_id) 
     where event.title = $1) AS count_ticke`, event_title)
+  }
+  delete_event_id (item) {
+    return this.db.one("DELETE FROM event WHERE event.id = $1 RETURNING id", item)
   }
 }
 module.exports = new events(db);

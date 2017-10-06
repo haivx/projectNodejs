@@ -1,10 +1,10 @@
 <template>
-  <form class="box">
+  <form class="box" @submit.prevent="submitOK" method="POST">
     <h3 class="title">
       Nội dung chính
     </h3>
     <p class="control">
-      <input class="input is-primary" type="text" placeholder="Tiêu đề" :value="editEvent1.title">
+      <input class="input is-primary" type="text" placeholder="Tiêu đề" :value="editEvent1.title"  @input="updateEvent('title',$event)" >
     </p>
     <quill :options="{ theme: 'snow' }" v-if="editEvent1.contents">
       <span v-html="editEvent1.contents"></span>
@@ -15,25 +15,25 @@
         <div class="column">
           <div class="control">
             <label class="label">Họ tên diễn giả</label>
-            <input class="input" :value="editEvent1.speaker"></input>
+            <input class="input"  :value="editEvent1.speaker" @input="updateEvent('updateSpeaker',$event)"></input>
           </div>
           <div class="control">
             <label class="label">Địa điểm tổ chức sự kiện</label>
-            <input class="input" :value="editEvent1.address"></input>
+            <input class="input"  :value="editEvent1.address" @input="updateEvent('updateAddress',$event)"></input>
           </div>
           <div class="control">
             <label class="label">Chức danh</label>
-            <input class="input" :value="editEvent1.job"></input>
+            <input class="input" :value="editEvent1.job" @input="updateEvent('updateJob',$event)"></input>
           </div>
         </div>
         <div class="column">
           <div class="control">
             <label class="label">Thời gian bắt đầu sự kiện</label>
-            <Datepicker placeholder="American Format ('m/d/Y')" :value="editEvent1.finishtime" :config="{ dateFormat: 'm/d/Y' }"></Datepicker>
+            <Datepicker ref="date1" placeholder="American Format ('m/d/Y')" :value="editEvent1.finishtime"   :config="{ dateFormat: 'm/d/Y' }"></Datepicker>
           </div>
           <div class="control">
             <label class="label">Thời gian kết thúc sự kiện</label>
-            <Datepicker placeholder="American Format ('m/d/Y')" :value="editEvent1.starttime" :config="{ dateFormat: 'm/d/Y' }"></Datepicker>
+            <Datepicker placeholder="American Format ('m/d/Y')" :value="editEvent1.starttime"  :config="{ dateFormat: 'm/d/Y' }"></Datepicker>
           </div>
           <div class="control">
             <!-- <label class="label">Địa điểm tổ chức sự kiện</label>
@@ -43,7 +43,7 @@
         <div class="column">
           <div class="control">
             <label class="label">Mô tả ngắn về sự kiện</label>
-            <textarea class="textarea" :value="editEvent1.description"></textarea>
+            <textarea class="textarea" :value="editEvent1.description" @input="updateEvent('updateDescription',$event)"></textarea>
           </div>
         </div>
       </div>
@@ -53,10 +53,11 @@
         <div class="control">
             <div class="file-upload-form">
                 Upload hình nền:
-                <input type="file" @change="previewImage1" accept="image/*">
+                <input type="file" @change="previewImage1" accept="image/*" @input="updateEvent('updatepicture1',$event)">
+                <img v-if="!imageData && editEvent1.background_image" class="preview-big" :src="''+ URLBASE + '' + editEvent1.background_image+ ''" alt="">
             </div>
             <div class="image-preview" v-if="imageData.length > 0">
-                <img class="preview" :src="imageData">
+                <img class="preview-big" :src="imageData">
             </div>
         </div>
       </div>
@@ -64,7 +65,8 @@
         <div class="control">
             <div class="file-upload-form">
                 Upload ảnh diễn giả:
-                <input type="file" @change="previewImage2" accept="image/*">
+                <input type="file" @change="previewImage2" accept="image/*" @input="updateEvent('updatepicture2',$event)">
+                <img v-if="!imageBg && editEvent1.avatar" class="preview" :src="''+ URLBASE + '' + editEvent1.avatar+ ''" alt="">
             </div>
             <div class="image-preview" v-if="imageBg.length > 0">
                 <img class="preview" :src="imageBg">
@@ -90,17 +92,20 @@ export default {
       rawValue: '',
       value: '2016-12-12',
       imageData: '',
-      imageBg: ''
+      imageBg: '',
+      URLBASE: 'http://localhost:3000/public/assets/images/event/',
+      updateObj: {},
+      updateEventObj: {}
     }
   },
   created () {
     let title = this.$route.params.id
-    console.log('params', title)
+    // console.log('params', title)
     return this.$store.dispatch('editEvent', title)
   },
   computed: {
     editEvent1 () {
-      console.log('this.$store.getters.editEvent', this.$store.getters.editEvent)
+      // console.log('this.$store.getters.editEvent', this.$store.getters.editEvent)
       return this.$store.getters.editEvent
     },
     today () {
@@ -149,6 +154,17 @@ export default {
         // Start the reader job - read file as a data url (base64 format)
         reader.readAsDataURL(input.files[0])
       }
+    },
+    updateEvent (attribute, e) {
+      this.updateObj[attribute] = e.target.value
+      console.log('this.updateObj', this.updateObj)
+    },
+    submitOK () {
+      console.log('this.$refs', this.$refs.date1.value)
+      var finalEventObj = Object.assign({}, this.updateObj)
+      console.log('UPDATE_EVENT', finalEventObj)
+      this.$store.commit('UPDATE_EVENT', finalEventObj)
+      console.log('this.$store.state.events', this.$store.state.events)
     }
   }
 }
@@ -162,15 +178,32 @@ export default {
 
 #submit {
   margin: 10px;
+    border: 2px solid #00d1b2;
+      font-weight: bold
 }
-
+#submit:hover{
+  background: white;
+  border: 2px solid #00d1b2;
+  color: #00d1b2;
+  font-weight: bold
+}
 .file-upload-form, .image-preview {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding: 20px;
+    text-align: center
 }
 img.preview {
-    max-width: 500px;
-    max-height: 300px;
+     max-width:250px;
+    /* height: auto; */
+    margin-top:20px;
+    background-color: white;
+    border: 1px solid #DDD;
+    padding: 5px;
+}
+img.preview-big {
+     max-width: 550px;
+    /* max-height: 150px; */
+    margin-top:20px;
     background-color: white;
     border: 1px solid #DDD;
     padding: 5px;
